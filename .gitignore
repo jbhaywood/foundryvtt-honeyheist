@@ -5,4 +5,4 @@
 # Node Modules
 node_modules/
 package-lock.json
-images/
+local-images/
