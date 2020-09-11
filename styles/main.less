@@ -1,0 +1,103 @@
+@import "foundry-overrides.less";
+@import "variables.less";
+@import "utility.less";
+
+.honeyheist {
+	.window-content {
+		color: @textColor;
+		height: 100%;
+		padding: @margin;
+		overflow-y: auto;
+	}
+	.sheet-panel {
+		display: grid;
+		grid-template-rows: max-content max-content 1fr;
+		gap: @margin;
+
+		#stat-panel {
+			gap: @margin;
+			height: 100px;
+			display: grid;
+			grid-template-columns: 100px 1fr 1fr;
+			grid-template-rows: 40px 1fr;
+			grid-template-areas: "portrait name name" "portrait bear criminal";
+			gap: @margin;
+
+			.profile-img {
+				grid-area: portrait;
+				height: 100px;
+			}
+			.char-name {
+				grid-area: name;
+				border-bottom: 0;
+
+				input {
+					width: 100%;
+					height: 100%;
+					margin: 0;
+				}
+			}
+			#stat-bear,
+			#stat-criminal {
+				grid-area: bear;
+				gap: 0;
+				margin-top: -10px;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: auto 1fr;
+				grid-template-areas: "title title title icon" "value die dice .";
+				align-items: center;
+			}
+			#stat-bear {
+				grid-area: bear;
+			}
+			#stat-criminal {
+				grid-area: criminal;
+			}
+			.stat-title {
+				grid-area: title;
+			}
+			.stat-button {
+				height: 40px;
+				grid-area: icon;
+			}
+			.stat-roll-single {
+				height: 35px;
+				grid-area: die;
+			}
+			.stat-roll-double {
+				height: 35px;
+				grid-area: dice;
+			}
+			.stat-value {
+				font-size: 45px;
+				font-family: Title;
+				height: 50px;
+				text-align: center;
+				width: 40px;
+				border: 0;
+				background: transparent;
+				grid-area: value;
+			}
+		}
+		#attributes-panel {
+			margin-top: 10px;
+
+			#attributes {
+				display: grid;
+				gap: @margin;
+				margin-top: @margin;
+			}
+			.attribute {
+				align-items: center;
+				display: grid;
+				gap: @margin;
+				grid-template-columns: 72px 200px 1fr;
+			}
+		}
+		#bio-panel {
+			display: grid;
+			grid-template-rows: max-content 1fr;
+		}
+	}
+}

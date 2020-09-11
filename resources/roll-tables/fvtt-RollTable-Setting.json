@@ -1,0 +1,103 @@
+{
+  "name": "Setting",
+  "sort": 100002,
+  "flags": {
+    "exportSource": {
+      "world": "test-honey-heist",
+      "system": "honey-heist",
+      "coreVersion": "0.6.6",
+      "systemVersion": 0.1
+    }
+  },
+  "results": [
+    {
+      "_id": "suhVkwmT7QZx66ty",
+      "flags": {},
+      "type": 0,
+      "text": "Creepy",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "O6fzeF3hf6j2nfUI",
+      "flags": {},
+      "type": 0,
+      "text": "Busy",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "CpRGwt70NoTHwgYw",
+      "flags": {},
+      "type": 0,
+      "text": "Run-Down",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "gDpiewrlbjoK8AKV",
+      "flags": {},
+      "type": 0,
+      "text": "Beautiful",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "7hFhyDHbgfuMlOZg",
+      "flags": {},
+      "type": 0,
+      "text": "Dangerous",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "q1BXDA9E0vFVfrFN",
+      "flags": {},
+      "type": 0,
+      "text": "Lavish",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false
+    }
+  ],
+  "replacement": true,
+  "displayRoll": false,
+  "_id": "3Rp18D8eaZPe0UpB",
+  "description": "The HoneyCon setting is...",
+  "formula": "1d6"
+}

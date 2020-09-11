@@ -1,0 +1,230 @@
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+}
+.window-app .window-content,
+.app,
+body {
+  font-family: Body;
+  background-image: none;
+}
+.window-app .window-content {
+  background: #dbcbbd;
+}
+.app {
+  background: #87431d;
+}
+body {
+  background: #c87941;
+}
+#chat-log .message,
+#chat-log .message.whisper,
+#chat-form textarea {
+  background: none;
+  background: #dbcbbd;
+}
+.flavor-text {
+  color: #1a1c20;
+}
+h2 {
+  font-family: Title;
+  border-bottom: 2px solid #1a1c20;
+}
+input[type="text"] {
+  border: 1px solid #1a1c20;
+  border-radius: 0px;
+  font-family: Title;
+  font-size: 1.3em;
+  padding: 0 5px;
+}
+select:focus,
+textarea:focus,
+input[type="text"]:focus {
+  outline: 1px solid #290001;
+  box-shadow: 0 0 5px #87431d;
+}
+a:hover {
+  text-shadow: 0 0 8px #87431d;
+}
+select,
+button,
+textarea,
+form button {
+  font-family: Body;
+  border-radius: 0;
+  border: 1px solid #290001;
+}
+button:hover {
+  box-shadow: 0 0 10px #87431d;
+}
+#chat-log .message,
+#chat-log .message h2,
+#chat-log .message h3,
+button,
+input,
+input[type="text"],
+input[type="password"],
+input[type="datetime-local"] {
+  color: #1a1c20;
+}
+.sheet-footer {
+  margin-top: 10px;
+}
+.fa-cog:before,
+.fa-plus:before {
+  color: #dbcbbd;
+}
+.window-content .fa-plus:before {
+  color: #1a1c20;
+}
+.tabs .item.active {
+  text-shadow: 0 0 10px #87431d;
+}
+#sidebar-tabs {
+  box-shadow: 0 0 10px #87431d;
+  border-bottom: 1px solid #c87941;
+}
+#sidebar-tabs > .item.active {
+  border: 1px solid #c87941;
+  box-shadow: 0 0 6px inset #87431d;
+}
+.sidebar-tab .directory-header,
+#combat #combat-round {
+  border-bottom: 2px solid #c87941;
+}
+#combat #combat-controls {
+  border-top: 2px solid #c87941;
+}
+#settings h2 {
+  border-top: 1px solid #290001;
+  border-bottom: 1px solid #290001;
+}
+.sidebar-tab .directory-list .directory-item img {
+  flex: 0 0 30px;
+  height: 30px;
+  width: 30px;
+  align-self: center;
+}
+@font-face {
+  font-family: Title;
+  src: url('/systems/honey-heist/resources/fonts/Chelsea_Market/ChelseaMarket-Regular.ttf');
+}
+@font-face {
+  font-family: Body;
+  src: url('/systems/honey-heist/resources/fonts/Montserrat/Montserrat-Medium.ttf');
+}
+.grid-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: 10px;
+}
+.grid-rows {
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 10px;
+}
+.no-border {
+  border: hidden;
+}
+.expand:hover {
+  transform: scale(1.1);
+}
+.error-red {
+  color: darkred !important;
+}
+.honeyheist .window-content {
+  color: #1a1c20;
+  height: 100%;
+  padding: 10px;
+  overflow-y: auto;
+}
+.honeyheist .sheet-panel {
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  gap: 10px;
+}
+.honeyheist .sheet-panel #stat-panel {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  grid-template-rows: 40px 1fr;
+  grid-template-areas: "portrait name name" "portrait bear criminal";
+  gap: 10px;
+}
+.honeyheist .sheet-panel #stat-panel .profile-img {
+  grid-area: portrait;
+  height: 100px;
+}
+.honeyheist .sheet-panel #stat-panel .char-name {
+  grid-area: name;
+  border-bottom: 0;
+}
+.honeyheist .sheet-panel #stat-panel .char-name input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.honeyheist .sheet-panel #stat-panel #stat-bear,
+.honeyheist .sheet-panel #stat-panel #stat-criminal {
+  grid-area: bear;
+  gap: 0;
+  margin-top: -10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "title title title icon" "value die dice .";
+  align-items: center;
+}
+.honeyheist .sheet-panel #stat-panel #stat-bear {
+  grid-area: bear;
+}
+.honeyheist .sheet-panel #stat-panel #stat-criminal {
+  grid-area: criminal;
+}
+.honeyheist .sheet-panel #stat-panel .stat-title {
+  grid-area: title;
+}
+.honeyheist .sheet-panel #stat-panel .stat-button {
+  height: 40px;
+  grid-area: icon;
+}
+.honeyheist .sheet-panel #stat-panel .stat-roll-single {
+  height: 35px;
+  grid-area: die;
+}
+.honeyheist .sheet-panel #stat-panel .stat-roll-double {
+  height: 35px;
+  grid-area: dice;
+}
+.honeyheist .sheet-panel #stat-panel .stat-value {
+  font-size: 45px;
+  font-family: Title;
+  height: 50px;
+  text-align: center;
+  width: 40px;
+  border: 0;
+  background: transparent;
+  grid-area: value;
+}
+.honeyheist .sheet-panel #attributes-panel {
+  margin-top: 10px;
+}
+.honeyheist .sheet-panel #attributes-panel #attributes {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.honeyheist .sheet-panel #attributes-panel .attribute {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 72px 200px 1fr;
+}
+.honeyheist .sheet-panel #bio-panel {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}

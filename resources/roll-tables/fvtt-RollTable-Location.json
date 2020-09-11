@@ -1,0 +1,103 @@
+{
+  "name": "Location",
+  "sort": 100003,
+  "flags": {
+    "exportSource": {
+      "world": "test-honey-heist",
+      "system": "honey-heist",
+      "coreVersion": "0.6.6",
+      "systemVersion": 0.1
+    }
+  },
+  "results": [
+    {
+      "_id": "tYYgmeMbt0rsH7KB",
+      "flags": {},
+      "type": 0,
+      "text": "Lakeside Camp",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "cgKqQHc3kcsxJu9O",
+      "flags": {},
+      "type": 0,
+      "text": "Fishing Village",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "n8IOfpjouZnIMrxy",
+      "flags": {},
+      "type": 0,
+      "text": "Metropolitan City",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "0634eExS10cVTzt5",
+      "flags": {},
+      "type": 0,
+      "text": "Convention Center",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "c4IT7tHyfgE16fll",
+      "flags": {},
+      "type": 0,
+      "text": "Truck Convoy",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false
+    },
+    {
+      "_id": "ZPsYPYSYULGFw042",
+      "flags": {},
+      "type": 0,
+      "text": "Wilderness Retreat",
+      "img": "icons/svg/d20-black.svg",
+      "resultId": "",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false
+    }
+  ],
+  "replacement": true,
+  "displayRoll": false,
+  "_id": "o10aSoa1MmSv73Jm",
+  "description": "HoneyCon is being held in a...",
+  "formula": "1d6"
+}

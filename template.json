@@ -1,0 +1,133 @@
+{
+	"Actor": {
+		"types": [ "character" ],
+		"character": {
+			"biography": "<p>It’s Honeycon. You are going to undertake the greatest heist the world has ever seen. Two Things – </p><p>One: You have a complex plan that requires precise timing.</p><p>Two: You are a GODDAMN BEAR.</p><p>You're not a talking bear, per se, but you can sort of mangle human speech through your bear mouth, maybe?</p>",
+			"stats": {
+				"bear": 4,
+				"criminal": 2
+			},
+			"descriptor": "",
+			"bear-type": "",
+			"role": "",
+			"hat": "",
+			"descriptors": {
+				"rookie": {
+					"label": "Rookie",
+					"dtype": "String"
+				},
+				"washed-up": {
+					"label": "Washed-up",
+					"dtype": "String"
+				},
+				"retired": {
+					"label": "Retired",
+					"dtype": "String"
+				},
+				"unhinged": {
+					"label": "Unhinged",
+					"dtype": "String"
+				},
+				"slick": {
+					"label": "Slick",
+					"dtype": "String"
+				},
+				"incompetent": {
+					"label": "Incompetent",
+					"dtype": "String"
+				}
+			},
+			"bear-types": {
+				"grizzly": {
+					"label": "Grizzly (Terrify)",
+					"dtype": "String"
+				},
+				"polar": {
+					"label": "Polar (Swim)",
+					"dtype": "String"
+				},
+				"panda": {
+					"label": "Panda (Eat anything that looks like bamboo)",
+					"dtype": "String"
+				},
+				"black": {
+					"label": "Black (Climb)",
+					"dtype": "String"
+				},
+				"sun": {
+					"label": "Sun (Sense honey)",
+					"dtype": "String"
+				},
+				"honey-badger": {
+					"label": "Honey Badger (Carnage)",
+					"dtype": "String"
+				}
+			},
+			"roles": {
+				"muscle": {
+					"label": "Muscle",
+					"dtype": "String"
+				},
+				"brains": {
+					"label": "Brains",
+					"dtype": "String"
+				},
+				"driver": {
+					"label": "Driver",
+					"dtype": "String"
+				},
+				"hacker": {
+					"label": "Hacker",
+					"dtype": "String"
+				},
+				"thief": {
+					"label": "Thief",
+					"dtype": "String"
+				},
+				"face": {
+					"label": "Face",
+					"dtype": "String"
+				}
+			},
+			"hats": {
+				"tribly": {
+					"label": "Tribly",
+					"dtype": "String"
+				},
+				"top": {
+					"label": "Top",
+					"dtype": "String"
+				},
+				"bowler": {
+					"label": "Bowler",
+					"dtype": "String"
+				},
+				"flat Cap": {
+					"label": "Flat Cap",
+					"dtype": "String"
+				},
+				"cowboy": {
+					"label": "Thief",
+					"dtype": "String"
+				},
+				"fez": {
+					"label": "Fez",
+					"dtype": "String"
+				},
+				"crown": {
+					"label": "Crown",
+					"dtype": "String"
+				}
+			}
+		}
+	},
+	"Item": {
+		"types": [ "item" ],
+		"item": {
+			"description": "",
+			"quantity": 1,
+			"weight": 0,
+			"attributes": {}
+		}
+	}
+}
