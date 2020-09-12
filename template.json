@@ -4,14 +4,20 @@
 		"character": {
 			"biography": "<p>It’s Honeycon. You are going to undertake the greatest heist the world has ever seen. Two Things – </p><p>One: You have a complex plan that requires precise timing.</p><p>Two: You are a GODDAMN BEAR.</p><p>You're not a talking bear, per se, but you can sort of mangle human speech through your bear mouth, maybe?</p>",
 			"stats": {
-				"bear": 4,
-				"criminal": 2
+				"bear": 3,
+				"criminal": 3
 			},
 			"descriptor": "",
 			"bear-type": "",
 			"role": "",
 			"hat": "",
+			"hat2a": "",
+			"hat2b": "",
 			"descriptors": {
+				"none": {
+					"label": "Roll",
+					"dtype": "String"
+				},
 				"rookie": {
 					"label": "Rookie",
 					"dtype": "String"
@@ -38,6 +44,10 @@
 				}
 			},
 			"bear-types": {
+				"none": {
+					"label": "Roll",
+					"dtype": "String"
+				},
 				"grizzly": {
 					"label": "Grizzly (Terrify)",
 					"dtype": "String"
@@ -64,6 +74,10 @@
 				}
 			},
 			"roles": {
+				"none": {
+					"label": "Roll",
+					"dtype": "String"
+				},
 				"muscle": {
 					"label": "Muscle",
 					"dtype": "String"
@@ -90,6 +104,10 @@
 				}
 			},
 			"hats": {
+				"none": {
+					"label": "Roll",
+					"dtype": "String"
+				},
 				"tribly": {
 					"label": "Tribly",
 					"dtype": "String"
@@ -102,7 +120,7 @@
 					"label": "Bowler",
 					"dtype": "String"
 				},
-				"flat Cap": {
+				"flat-cap": {
 					"label": "Flat Cap",
 					"dtype": "String"
 				},
@@ -116,6 +134,10 @@
 				},
 				"crown": {
 					"label": "Crown",
+					"dtype": "String"
+				},
+				"roll-twice": {
+					"label": "Roll Twice!",
 					"dtype": "String"
 				}
 			}

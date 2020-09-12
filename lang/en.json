@@ -12,6 +12,8 @@
 	"HH.BearType": "Bear Type",
 	"HH.BearRole": "Role",
 	"HH.BearHat": "Hat",
+	"HH.BearHat1": "Hat 1",
+	"HH.BearHat2": "Hat 2",
 	"HH.Success": "SUCCESS",
 	"HH.Failed": "FAIL",
 	"HH.RollMessage": "Roll for",

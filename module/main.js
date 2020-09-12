@@ -11,6 +11,11 @@ Hooks.once("init", async function() {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { makeDefault: true });
 
+	Handlebars.registerHelper("removeProperty", function(obj, property) {
+		delete obj[property];
+		return obj;
+	});
+
 	// CONFIG.debug.hooks = true;
 });
 
@@ -40,6 +45,7 @@ Hooks.once("ready", async function() {
 });
 
 Hooks.on("renderHoneyHeistActorSheet", (ev) => {
+	// Color a stat red if it's value is six.
 	const bearStat = $("#stat-bear").find(".stat-value").get(0);
 	const criminalStat = $("#stat-criminal").find(".stat-value").get(0);
 	let bearVal = parseInt(bearStat.value, 10);
@@ -49,5 +55,12 @@ Hooks.on("renderHoneyHeistActorSheet", (ev) => {
 		$("#stat-bear").children().addClass("error-red");
 	} else if (criminalVal === 6) {
 		$("#stat-criminal").children().addClass("error-red");
+	}
+
+	// Show the extra hat options if the initial hat stat is 'roll-twice'.
+	if ($("#hat-roll").val() === "roll-twice") {
+		$(".hat2").show();
+	} else {
+		$(".hat2").hide();
 	}
 });

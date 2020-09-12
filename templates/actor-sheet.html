@@ -41,7 +41,7 @@
             {{/each}}
           {{/select}}
         </select>
-        <img class="attribute-roll expand no-border" data-roll="d6"
+        <img class="attribute-roll expand no-border" data-roll="d6+1"
           src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
       </div>
       <div class="attribute">
@@ -53,7 +53,7 @@
             {{/each}}
           {{/select}}
         </select>
-        <img class="attribute-roll expand no-border" data-roll="d6"
+        <img class="attribute-roll expand no-border" data-roll="d6+1"
           src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
       </div>
       <div class="attribute">
@@ -65,19 +65,43 @@
             {{/each}}
           {{/select}}
         </select>
-        <img class="attribute-roll expand no-border" data-roll="d6"
+        <img class="attribute-roll expand no-border" data-roll="d6+1"
           src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
       </div>
       <div class="attribute">
         <label>{{localize 'HH.BearHat'}}</label>
-        <select name="data.hat" data-type="String">
+        <select id="hat-roll" name="data.hat" data-type="String">
           {{#select data.hat}}
             {{#each data.hats as |hat key|}}
               <option value="{{key}}">{{hat.label}}</option>
             {{/each}}
           {{/select}}
         </select>
-        <img class="attribute-roll expand no-border" data-roll="d8"
+        <img class="attribute-roll expand no-border" data-roll="d8+1"
+          src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
+      </div>
+      <div class="attribute hat2">
+        <label>{{localize 'HH.BearHat1'}}</label>
+        <select name="data.hat2a" data-type="String">
+          {{#select data.hat2a}}
+            {{#each (removeProperty data.hats "roll-twice") as |hat key|}}
+              <option value="{{key}}">{{hat.label}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+        <img class="attribute-roll expand no-border" data-roll="d7+1"
+          src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
+      </div>
+      <div class="attribute hat2">
+        <label>{{localize 'HH.BearHat2'}}</label>
+        <select name="data.hat2b" data-type="String">
+          {{#select data.hat2b}}
+            {{#each (removeProperty data.hats "roll-twice") as |hat key|}}
+              <option value="{{key}}">{{hat.label}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+        <img class="attribute-roll expand no-border" data-roll="d7+1"
           src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
       </div>
     </div>

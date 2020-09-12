@@ -23,16 +23,26 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			const parent = roller.parent("div");
 			const label = parent.find("label").get(0).innerText;
 			const select = parent.find("select").get(0);
+			const attributeName = select.name;
 			const option = select.options[roll.total - 1];
 
-			// Select the option that matches the value rolled.
-			option.selected = true;
+			this.actor.update({ [attributeName]: option.value });
 
-			roll.toMessage({
-				user    : game.user._id,
-				speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-				content : `<h2>${label}</h2><h3>${option.innerText}</h3>`
-			});
+			// If you roll an 8 on a hat roll, you get two hats!
+			if (attributeName === "data.hat" && roll.total === 9) {
+				$(".hat2").show();
+				roll.toMessage({
+					user    : game.user._id,
+					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
+					content : `<h2>${label} Roll</h2><h3>${option.innerText} You get two hats!!</h3>`
+				});
+			} else {
+				roll.toMessage({
+					user    : game.user._id,
+					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
+					content : `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
+				});
+			}
 		});
 
 		html.find(".stat-button").click((ev) => {
