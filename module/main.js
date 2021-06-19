@@ -31,7 +31,9 @@ Hooks.once("ready", async function() {
 		Organizer : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Organizer.json",
 		Setting   : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Setting.json",
 		Location  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Location.json",
-		Prize     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json"
+		Prize     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json",
+		Security  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Security.json",
+		Twist     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
 	};
 
 	if( isNewerVersion(game.data.version, "0.8.0") ) {
