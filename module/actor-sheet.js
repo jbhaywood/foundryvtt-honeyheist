@@ -2,6 +2,8 @@
  * Extend the basic ActorSheet
  * @extends {ActorSheet}
  */
+
+
 export class HoneyHeistActorSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
@@ -14,12 +16,26 @@ export class HoneyHeistActorSheet extends ActorSheet {
 	}
 
 	/** @override */
+	getData(options) {
+		let baseData = super.getData(options);
+		let sheetData = {};
+		sheetData = baseData.data;  // needed to handle the new 0.8.x data depth
+    if( isNewerVersion(game.data.version, "0.8.0") ) {
+			sheetData.actor = this.actor.data.toObject( false );  // needed for actor.x handlebars
+			sheetData.editable = this.options.editable;  // needed to fix TinyMCE due to missing editable parameter
+			return sheetData;
+		} else {
+    	return baseData;
+		}
+	}
+
+	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
 
 		html.find(".attribute-roll").click((ev) => {
 			const roller = $(ev.currentTarget);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).roll();
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({async: false});  // avoid deprecation warning, backwards compatible
 			const parent = roller.parent("div");
 			const label = parent.find("label").get(0).innerText;
 			const select = parent.find("select").get(0);
@@ -32,13 +48,13 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			if (attributeName === "data.hat" && roll.total === 9) {
 				$(".hat2").show();
 				roll.toMessage({
-					user    : game.user._id,
+					user    : game.user.id,  // avoid deprecation warning, backwards compatible
 					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 					content : `<h2>${label} Roll</h2><h3>${option.innerText} You get two hats!!</h3>`
 				});
 			} else {
 				roll.toMessage({
-					user    : game.user._id,
+					user    : game.user.id,  // avoid deprecation warning, backwards compatible
 					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 					content : `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
 				});
@@ -55,7 +71,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 					content : isBearRoll
 						? game.i18n.localize("HH.CriminalToBear")
 						: game.i18n.localize("HH.BearToCriminal"),
-					user    : game.user._id,
+					user    : game.user.id,
 					speaker : ChatMessage.getSpeaker({ actor: this.actor })
 				});
 			}
@@ -66,7 +82,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			const roller = $(ev.currentTarget);
 			const input = roller.siblings(".stat-value").get(0);
 			const currentValue = parseInt(input.value, 10);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).roll();
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({async: false});  // avoid deprecation warning, backwards compatible
 			const isSuccess = roll.total <= currentValue;
 			const rollSuccess = isSuccess ? game.i18n.localize("HH.Success") : game.i18n.localize("HH.Failed");
 			const actionMessage = isSuccess
@@ -84,7 +100,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 			if (!isEnd) {
 				roll.toMessage({
-					user    : game.user._id,
+					user    : game.user.id,  // avoid deprecation warning, backwards compatible
 					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 					flavor  : chatMessage
 				});
@@ -92,7 +108,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		});
 	}
 
-	_updateStats(bearOffest, roll, isBearRoll) {
+	_updateStats(bearOffset, roll, isBearRoll) {
 		const bearStat = $("#stat-bear").find(".stat-value").get(0);
 		const criminalStat = $("#stat-criminal").find(".stat-value").get(0);
 		let bearVal = parseInt(bearStat.value, 10);
@@ -101,8 +117,8 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 		if (!endResult) {
 			// Adjust the current values based on the given offset.
-			bearVal += bearOffest;
-			criminalVal -= bearOffest;
+			bearVal += bearOffset;
+			criminalVal -= bearOffset;
 
 			// Only need to check one or the other stat value to make sure they're in the 0-6 range.
 			if (bearVal >= 0 && bearVal <= 6) {
@@ -117,13 +133,13 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 					if (roll) {
 						roll.toMessage({
-							user    : game.user._id,
+							user    : game.user.id,  // avoid deprecation warning, backwards compatible
 							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 							flavor  : game.i18n.localize("HH.BearEndMessage")
 						});
 					} else {
 						ChatMessage.create({
-							user    : game.user._id,
+							user    : game.user.id,  // avoid deprecation warning, backwards compatible
 							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 							content : game.i18n.localize("HH.BearEndMessage")
 						});
@@ -133,13 +149,13 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 					if (roll) {
 						roll.toMessage({
-							user    : game.user._id,
+							user    : game.user.id,  // avoid deprecation warning, backwards compatible
 							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 							flavor  : game.i18n.localize("HH.CriminalEndMessage")
 						});
 					} else {
 						ChatMessage.create({
-							user    : game.user._id,
+							user    : game.user.id,  // avoid deprecation warning, backwards compatible
 							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
 							content : game.i18n.localize("HH.CriminalEndMessage")
 						});
