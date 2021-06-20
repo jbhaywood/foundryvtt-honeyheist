@@ -1,3 +1,5 @@
+v1.2: 6/20/2021
+- Updated to support Foundry API 8.x.
 v1.1: 12/12/2020
 - Fixed bug with rolling caused by Foundry API change.
 v1.0: 9/12/2020
