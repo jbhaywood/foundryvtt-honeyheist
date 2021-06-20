@@ -1,0 +1,121 @@
+{
+  "name": "Security Features (Roll Twice)",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "eXiHC9vMQTrsgqUl",
+      "type": 0,
+      "text": "Armed guards",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 1,
+      "rangeH": 1,
+      "collection": null,
+      "resultId": null
+    },
+    {
+      "_id": "gFy9yQkaeOLxZwuJ",
+      "type": 0,
+      "text": "Electronically locked doors",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 2,
+      "rangeH": 2,
+      "collection": null,
+      "resultId": null
+    },
+    {
+      "_id": "hjPxDHRvskvkqdbc",
+      "type": 0,
+      "text": "Laser tripwire grids",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 3,
+      "rangeH": 3,
+      "collection": null,
+      "resultId": null
+    },
+    {
+      "_id": "15zfM2MtCOKYw10b",
+      "type": 0,
+      "text": "CCTV network",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 4,
+      "rangeH": 4,
+      "collection": null,
+      "resultId": null
+    },
+    {
+      "_id": "mVxexxX5OCwrkQjV",
+      "type": 0,
+      "text": "\"Impenetrable\" Vault",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 5,
+      "rangeH": 5,
+      "collection": null,
+      "resultId": null
+    },
+    {
+      "_id": "vTR8rtkbSVuAoKNb",
+      "type": 0,
+      "text": "Poison gas",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 6,
+      "rangeH": 6,
+      "collection": null,
+      "resultId": null
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": false,
+  "sort": 0,
+  "flags": {
+    "exportSource": {
+      "world": "honey",
+      "system": "honey-heist",
+      "coreVersion": "0.8.7",
+      "systemVersion": "1.1"
+    }
+  }
+}

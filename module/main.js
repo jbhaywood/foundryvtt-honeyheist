@@ -5,7 +5,11 @@ Hooks.once("init", async function() {
 	console.log(`HoneyHeist: Initializing`);
 
 	// Define custom Entity classes
-	CONFIG.Actor.entityClass = HoneyHeistActor;
+	if( isNewerVersion(game.data.version, "0.8.0") ) {
+		CONFIG.Actor.documentClass = HoneyHeistActor;
+	} else {
+		CONFIG.Actor.entityClass = HoneyHeistActor;
+	}
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
@@ -27,11 +31,19 @@ Hooks.once("ready", async function() {
 		Organizer : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Organizer.json",
 		Setting   : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Setting.json",
 		Location  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Location.json",
-		Prize     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json"
+		Prize     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json",
+		Security  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Security.json",
+		Twist     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
 	};
 
-	for (const entity of RollTable.collection.entities) {
-		existingRollTables.push(entity.name);
+	if( isNewerVersion(game.data.version, "0.8.0") ) {
+		for( const document of game.collections.get( "RollTable" ).contents ) {
+			existingRollTables.push( document.name );
+		}
+	} else {
+		for( const document of RollTable.collection.entities ) {
+			existingRollTables.push( document.name );
+		}
 	}
 
 	for (let [ key, value ] of Object.entries(rollTables)) {
