@@ -1,11 +1,11 @@
 import { HoneyHeistActor } from "./actor.js";
 import { HoneyHeistActorSheet } from "./actor-sheet.js";
 
-Hooks.once("init", async function() {
+Hooks.once("init", async function () {
 	console.log(`HoneyHeist: Initializing`);
 
 	// Define custom Entity classes
-	if( isNewerVersion(game.data.version, "0.8.0") ) {
+	if (isNewerVersion(game.data.version, "0.8.0")) {
 		CONFIG.Actor.documentClass = HoneyHeistActor;
 	} else {
 		CONFIG.Actor.entityClass = HoneyHeistActor;
@@ -15,7 +15,7 @@ Hooks.once("init", async function() {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { makeDefault: true });
 
-	Handlebars.registerHelper("removeProperty", function(obj, property) {
+	Handlebars.registerHelper("removeProperty", function (obj, property) {
 		delete obj[property];
 		return obj;
 	});
@@ -23,30 +23,30 @@ Hooks.once("init", async function() {
 	// CONFIG.debug.hooks = true;
 });
 
-Hooks.once("ready", async function() {
+Hooks.once("ready", async function () {
 	// Make sure all roll tables are always present.
 	const existingRollTables = [];
 	const rollTablesToAdd = [];
 	const rollTables = {
-		Organizer : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Organizer.json",
-		Setting   : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Setting.json",
-		Location  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Location.json",
-		Prize     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json",
-		Security  : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Security.json",
-		Twist     : "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
+		Organizer: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Organizer.json",
+		Setting: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Setting.json",
+		Location: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Location.json",
+		Prize: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json",
+		Security: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Security.json",
+		Twist: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
 	};
 
-	if( isNewerVersion(game.data.version, "0.8.0") ) {
-		for( const document of game.collections.get( "RollTable" ).contents ) {
-			existingRollTables.push( document.name );
+	if (isNewerVersion(game.data.version, "0.8.0")) {
+		for (const document of game.collections.get("RollTable").contents) {
+			existingRollTables.push(document.name);
 		}
 	} else {
-		for( const document of RollTable.collection.entities ) {
-			existingRollTables.push( document.name );
+		for (const document of RollTable.collection.entities) {
+			existingRollTables.push(document.name);
 		}
 	}
 
-	for (let [ key, value ] of Object.entries(rollTables)) {
+	for (let [key, value] of Object.entries(rollTables)) {
 		if (existingRollTables.indexOf(key) === -1) {
 			const rollTable = await $.getJSON(value).then();
 			rollTablesToAdd.push(rollTable);

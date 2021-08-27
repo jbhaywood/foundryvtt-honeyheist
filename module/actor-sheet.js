@@ -8,10 +8,10 @@ export class HoneyHeistActorSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes  : [ "honeyheist", "sheet", "actor" ],
-			template : "systems/honey-heist/templates/actor-sheet.html",
-			width    : 500,
-			height   : 550
+			classes: ["honeyheist", "sheet", "actor"],
+			template: "systems/honey-heist/templates/actor-sheet.html",
+			width: 500,
+			height: 550
 		});
 	}
 
@@ -20,12 +20,12 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		let baseData = super.getData(options);
 		let sheetData = {};
 		sheetData = baseData.data;  // needed to handle the new 0.8.x data depth
-    if( isNewerVersion(game.data.version, "0.8.0") ) {
-			sheetData.actor = this.actor.data.toObject( false );  // needed for actor.x handlebars
+		if (isNewerVersion(game.data.version, "0.8.0")) {
+			sheetData.actor = this.actor.data.toObject(false);  // needed for actor.x handlebars
 			sheetData.editable = this.options.editable;  // needed to fix TinyMCE due to missing editable parameter
 			return sheetData;
 		} else {
-    	return baseData;
+			return baseData;
 		}
 	}
 
@@ -35,7 +35,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 		html.find(".attribute-roll").click((ev) => {
 			const roller = $(ev.currentTarget);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({async: false});  // avoid deprecation warning, backwards compatible
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
 			const parent = roller.parent("div");
 			const label = parent.find("label").get(0).innerText;
 			const select = parent.find("select").get(0);
@@ -48,15 +48,15 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			if (attributeName === "data.hat" && roll.total === 9) {
 				$(".hat2").show();
 				roll.toMessage({
-					user    : game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-					content : `<h2>${label} Roll</h2><h3>${option.innerText} You get two hats!!</h3>`
+					user: game.user.id,  // avoid deprecation warning, backwards compatible
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					content: `<h2>${label} Roll</h2><h3>${option.innerText} You get two hats!!</h3>`
 				});
 			} else {
 				roll.toMessage({
-					user    : game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-					content : `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
+					user: game.user.id,  // avoid deprecation warning, backwards compatible
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
 				});
 			}
 		});
@@ -68,11 +68,11 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 			if (!isEnd) {
 				ChatMessage.create({
-					content : isBearRoll
+					content: isBearRoll
 						? game.i18n.localize("HH.CriminalToBear")
 						: game.i18n.localize("HH.BearToCriminal"),
-					user    : game.user.id,
-					speaker : ChatMessage.getSpeaker({ actor: this.actor })
+					user: game.user.id,
+					speaker: ChatMessage.getSpeaker({ actor: this.actor })
 				});
 			}
 		});
@@ -82,7 +82,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			const roller = $(ev.currentTarget);
 			const input = roller.siblings(".stat-value").get(0);
 			const currentValue = parseInt(input.value, 10);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({async: false});  // avoid deprecation warning, backwards compatible
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
 			const isSuccess = roll.total <= currentValue;
 			const rollSuccess = isSuccess ? game.i18n.localize("HH.Success") : game.i18n.localize("HH.Failed");
 			const actionMessage = isSuccess
@@ -100,9 +100,9 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 			if (!isEnd) {
 				roll.toMessage({
-					user    : game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-					flavor  : chatMessage
+					user: game.user.id,  // avoid deprecation warning, backwards compatible
+					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+					flavor: chatMessage
 				});
 			}
 		});
@@ -133,15 +133,15 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 					if (roll) {
 						roll.toMessage({
-							user    : game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-							flavor  : game.i18n.localize("HH.BearEndMessage")
+							user: game.user.id,  // avoid deprecation warning, backwards compatible
+							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+							flavor: game.i18n.localize("HH.BearEndMessage")
 						});
 					} else {
 						ChatMessage.create({
-							user    : game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-							content : game.i18n.localize("HH.BearEndMessage")
+							user: game.user.id,  // avoid deprecation warning, backwards compatible
+							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+							content: game.i18n.localize("HH.BearEndMessage")
 						});
 					}
 				} else if (criminalVal === 6) {
@@ -149,15 +149,15 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 					if (roll) {
 						roll.toMessage({
-							user    : game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-							flavor  : game.i18n.localize("HH.CriminalEndMessage")
+							user: game.user.id,  // avoid deprecation warning, backwards compatible
+							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+							flavor: game.i18n.localize("HH.CriminalEndMessage")
 						});
 					} else {
 						ChatMessage.create({
-							user    : game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker : ChatMessage.getSpeaker({ actor: this.actor }),
-							content : game.i18n.localize("HH.CriminalEndMessage")
+							user: game.user.id,  // avoid deprecation warning, backwards compatible
+							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+							content: game.i18n.localize("HH.CriminalEndMessage")
 						});
 					}
 				}

@@ -1,3 +1,5 @@
+v1.22: 6/24/2021
+- Fixed the security table getting duplicated on game startup.
 v1.21: 6/24/2021
 - Trying to get this updating in Foundry correctly.
 v1.2: 6/20/2021

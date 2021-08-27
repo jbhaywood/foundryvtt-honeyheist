@@ -1,7 +1,6 @@
 {
-  "name": "Security Features (Roll Twice)",
+  "name": "Security",
   "img": "icons/svg/d20-grey.svg",
-  "description": "",
   "results": [
     {
       "_id": "eXiHC9vMQTrsgqUl",
@@ -106,16 +105,9 @@
       "resultId": null
     }
   ],
-  "formula": "1d6",
   "replacement": true,
   "displayRoll": false,
-  "sort": 0,
-  "flags": {
-    "exportSource": {
-      "world": "honey",
-      "system": "honey-heist",
-      "coreVersion": "0.8.7",
-      "systemVersion": "1.1"
-    }
-  }
+  "_id": "m5q7q9GiDJrPqP9K",
+  "description": "(Roll Twice) The security at this year's HoneyCon is...",
+  "formula": "1d6"
 }
