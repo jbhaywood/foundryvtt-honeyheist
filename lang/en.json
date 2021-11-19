@@ -6,6 +6,8 @@
 	"HH.CriminalRollTooltip": "Roll for criminal",
 	"HH.BearRollWithSkillTooltip": "Roll for bear using a skill or role",
 	"HH.CriminalRollWithSkillTooltip": "Roll for criminal using a skill or role",
+	"HH.MoveToBearTooltip": "Move a point to bear",
+	"HH.MoveToCriminalTooltip": "Move a point to criminal",
 	"HH.AttributesTitle": "Attributes",
 	"HH.BiographyTitle": "Bio",
 	"HH.BearDesciptor": "Descriptor",

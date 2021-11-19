@@ -125,7 +125,7 @@
 					"dtype": "String"
 				},
 				"cowboy": {
-					"label": "Thief",
+					"label": "Cowboy",
 					"dtype": "String"
 				},
 				"fez": {
