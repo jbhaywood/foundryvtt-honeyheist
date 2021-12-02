@@ -58,21 +58,27 @@ Hooks.once("ready", async function () {
 
 Hooks.on("renderHoneyHeistActorSheet", (ev) => {
 	// Color a stat red if it's value is six.
-	const bearStat = $("#stat-bear").find(".stat-value").get(0);
-	const criminalStat = $("#stat-criminal").find(".stat-value").get(0);
-	let bearVal = parseInt(bearStat.value, 10);
-	let criminalVal = parseInt(criminalStat.value, 10);
+	const root = ev.element[0];
+	const bearStatElement = root.querySelector("#stat-bear .stat-value");
+	const criminalStatElement = root.querySelector("#stat-criminal .stat-value");
+	let bearVal = parseInt(bearStatElement.value, 10);
+	let criminalVal = parseInt(criminalStatElement.value, 10);
 
 	if (bearVal === 6) {
-		$("#stat-bear").children().addClass("error-red");
+		bearStatElement.classList.add("error-red");
 	} else if (criminalVal === 6) {
-		$("#stat-criminal").children().addClass("error-red");
+		criminalStatElement.classList.add("error-red");
 	}
 
 	// Show the extra hat options if the initial hat stat is 'roll-twice'.
-	if ($("#hat-roll").val() === "roll-twice") {
-		$(".hat2").show();
+	const hatRollElement = root.querySelector("#hat-roll");
+	if (hatRollElement.value === "roll-twice") {
+		for (const elem of root.querySelectorAll(".hat2")) {
+			elem.style.display = "";
+		}
 	} else {
-		$(".hat2").hide();
+		for (const elem of root.querySelectorAll(".hat2")) {
+			elem.style.display = "none";
+		}
 	}
 });

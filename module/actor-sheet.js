@@ -33,7 +33,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		html.find(".attribute-roll").click((ev) => {
+		html.find(".attribute-roll").click(async (ev) => {
 			const roller = $(ev.currentTarget);
 			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
 			const parent = roller.parent("div");
@@ -42,7 +42,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			const attributeName = select.name;
 			const option = select.options[roll.total - 1];
 
-			this.actor.update({ [attributeName]: option.value });
+			await this.actor.update({ [attributeName]: option.value });
 
 			// If you roll an 8 on a hat roll, you get two hats!
 			if (attributeName === "data.hat" && roll.total === 9) {
@@ -64,7 +64,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		html.find(".stat-button").click((ev) => {
 			const isBearRoll = this._isBearRoll(ev.currentTarget);
 			const updateValue = isBearRoll ? 1 : -1;
-			const isEnd = this._updateStats(updateValue, null, isBearRoll);
+			const isEnd = this._updateStatsAsync(updateValue, null, isBearRoll);
 
 			if (!isEnd) {
 				ChatMessage.create({
@@ -77,11 +77,11 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			}
 		});
 
-		html.find(".stat-roll-single, .stat-roll-double").click((ev) => {
+		html.find(".stat-roll-single, .stat-roll-double").click(async (ev) => {
 			const isBearRoll = this._isBearRoll(ev.currentTarget);
 			const roller = $(ev.currentTarget);
 			const input = roller.siblings(".stat-value").get(0);
-			const currentValue = parseInt(input.value, 10);
+			const currentValue = parseInt(input.value);
 			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
 			const isSuccess = roll.total <= currentValue;
 			const rollSuccess = isSuccess ? game.i18n.localize("HH.Success") : game.i18n.localize("HH.Failed");
@@ -96,7 +96,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			// difficulty, move one point from Criminal into Bear.
 			// GREED: When the plan goes off without a hitch, move
 			// one point from Bear into Criminal.
-			const isEnd = this._updateStats(isSuccess ? -1 : 1, roll, isBearRoll);
+			const isEnd = await this._updateStatsAsync(isSuccess ? -1 : 1, roll, isBearRoll);
 
 			if (!isEnd) {
 				roll.toMessage({
@@ -108,27 +108,36 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		});
 	}
 
-	_updateStats(bearOffset, roll, isBearRoll) {
-		const bearStat = $("#stat-bear").find(".stat-value").get(0);
-		const criminalStat = $("#stat-criminal").find(".stat-value").get(0);
-		let bearVal = parseInt(bearStat.value, 10);
-		let criminalVal = parseInt(criminalStat.value, 10);
-		let endResult = (isBearRoll && bearVal === 6) || (!isBearRoll && criminalVal === 6);
+	async _updateStatsAsync(offset, roll, isBearRoll) {
+		let bearStat = this.actor.data.data.stats.bear;
+		let criminalStat = this.actor.data.data.stats.criminal;
+
+		// These stat values should always be numbers, but sometimes 
+		// they get returned as strings and I don't know why.
+		if (typeof bearStat === "string") {
+			bearStat = parseInt(bearStat);
+		}
+
+		if (typeof criminalStat === "string") {
+			criminalStat = parseInt(criminalStat);
+		}
+
+		let endResult = (isBearRoll && bearStat === 6) || (!isBearRoll && criminalStat === 6);
 
 		if (!endResult) {
 			// Adjust the current values based on the given offset.
-			bearVal += bearOffset;
-			criminalVal -= bearOffset;
+			bearStat += offset;
+			criminalStat -= offset;
 
 			// Only need to check one or the other stat value to make sure they're in the 0-6 range.
-			if (bearVal >= 0 && bearVal <= 6) {
+			if (bearStat >= 0 && bearStat <= 6) {
 				// Set the new values in the sheet.
-				this.actor.update({ "data.stats.bear": bearVal });
-				this.actor.update({ "data.stats.criminal": criminalVal });
+				await this.actor.update({ "data.stats.bear": bearStat });
+				await this.actor.update({ "data.stats.criminal": criminalStat });
 
-				// Check to see if either the bear criminal stat has reached 6,
+				// Check to see if either the bear or criminal stat has reached 6,
 				// which means it's the end for this bear.
-				if (bearVal === 6) {
+				if (bearStat === 6) {
 					endResult = true;
 
 					if (roll) {
@@ -144,7 +153,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 							content: game.i18n.localize("HH.BearEndMessage")
 						});
 					}
-				} else if (criminalVal === 6) {
+				} else if (criminalStat === 6) {
 					endResult = true;
 
 					if (roll) {
