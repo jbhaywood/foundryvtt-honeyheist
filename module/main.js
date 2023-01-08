@@ -1,5 +1,6 @@
 import { HoneyHeistActor } from "./actor.js";
 import { HoneyHeistActorSheet } from "./actor-sheet.js";
+import { HoneyHeistItemSheet } from "./item-sheet.js";
 
 Hooks.once("init", async function () {
 	console.log(`HoneyHeist: Initializing`);
@@ -13,7 +14,10 @@ Hooks.once("init", async function () {
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { makeDefault: true });
+	Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { label: "Honey Heist Character Sheet (Default)", makeDefault: true });
+
+	Items.unregisterSheet("core", ItemSheet);
+	Items.registerSheet("honeyheist", HoneyHeistItemSheet, { label: "Honey Heist Item Sheet (Default)", makeDefault: true });
 
 	Handlebars.registerHelper("removeProperty", function (obj, property) {
 		delete obj[property];
