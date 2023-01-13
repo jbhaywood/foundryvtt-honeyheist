@@ -109,7 +109,8 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		});
 
 		html.find(".add-item").click(async (ev) => {
-			await this.actor.createEmbeddedDocuments("Item", [{type: "item", name: game.i18n.localize('HH.NewItemName')}]);
+			let item = await this.actor.createEmbeddedDocuments("Item", [{type: "item", name: game.i18n.localize('HH.NewItemName')}]);
+			await item[0].sheet.render(true);
 		});
 
 		html.find(".item-edit").click(async (ev) => {
