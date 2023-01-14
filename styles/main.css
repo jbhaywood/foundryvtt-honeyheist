@@ -210,8 +210,12 @@ input[type="datetime-local"] {
   background: transparent;
   grid-area: value;
 }
+.honeyheist .sheet-panel #attributes-panel,
+.honeyheist .sheet-panel #bio-panel {
+  max-height: 260px;
+}
 .honeyheist .sheet-panel #attributes-panel {
-  margin-top: 10px;
+  margin-right: 0.5rem;
 }
 .honeyheist .sheet-panel #attributes-panel #attributes {
   display: grid;
@@ -227,4 +231,71 @@ input[type="datetime-local"] {
 .honeyheist .sheet-panel #bio-panel {
   display: grid;
   grid-template-rows: max-content 1fr;
+  flex: 1;
+}
+.honeyheist .sheet-panel #bio-panel .editor {
+  min-height: 150px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.honeyheist .sheet-panel #middle-panel {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-top: 14px;
+}
+.honeyheist .sheet-panel #items-panel .hh-item-list {
+  overflow-y: auto;
+  height: 175px;
+}
+.honeyheist .sheet-panel #items-panel .add-item {
+  font-size: 0.7rem;
+  align-self: center;
+}
+.honeyheist .sheet-panel #items-panel .add-item:hover {
+  text-shadow: 2px 2px 4px var(--color-text-dark-5);
+  cursor: pointer;
+}
+.honeyheist .sheet-panel #items-panel ol {
+  list-style: none;
+  margin: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 0 5px;
+}
+.honeyheist .sheet-panel #items-panel .items-header {
+  border-bottom: 1px solid var(--color-border-dark-5);
+}
+.honeyheist .sheet-panel #items-panel .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+  border-bottom: none;
+}
+.honeyheist .sheet-panel #items-panel .item-roll {
+  cursor: pointer;
+}
+.honeyheist .sheet-panel #items-panel .item-name {
+  margin: 0;
+  overflow: hidden;
+  align-items: center;
+}
+.honeyheist .sheet-panel #items-panel .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  background-position: 50% 0;
+  border: none;
+}
+.honeyheist .sheet-panel #items-panel .item-controls {
+  flex: 0 0 68px;
+  align-items: center;
+}
+.honeyheist .chatItem .item-image {
+  flex: 0 0 15px;
+  height: 15px;
+  width: 15px;
+  background-size: cover;
+  background-position: 50% 0;
+  border: none;
 }
