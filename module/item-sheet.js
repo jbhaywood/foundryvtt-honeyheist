@@ -8,7 +8,7 @@ export class HoneyHeistItemSheet extends ItemSheet {
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
 			classes: ["honeyheist", "sheet", "item"],
-			template: "systems/honey-heist/templates/item-sheet.html",
+			template: "systems/definitely-wizards/templates/item-sheet.html",
 			width: 550,
 			height: 400
 		});

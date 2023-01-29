@@ -3,44 +3,44 @@
   <div id="stat-panel">
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <h1 class="char-name">
-      <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'HH.BearName'}}" />
+      <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'DW.BearName'}}" />
     </h1>
     {{!-- Stats Block --}}
     <div id="stat-wizard">
       <h2 class="stat-title">Wizard</h2>
-      <img class="stat-button no-border expand" title="{{localize 'HH.MoveToBearTooltip'}}"
+      <img class="stat-button no-border expand" title="{{localize 'DW.AddToWizardTooltip'}}"
         src="/systems/honey-heist/resources/icons/wizard.svg" />
       <input class="stat-value" name="stats.wizard" data-type="Number" value="{{system.stats.wizard}}"
         readonly="readonly" />
-      <img class="stat-roll-single expand no-border" title="{{localize 'HH.BearRollTooltip'}}" data-roll="1d6"
+      <img class="stat-roll-single expand no-border" title="{{localize 'DW.WizardRollTooltip'}}" data-roll="1d6"
         src="/systems/honey-heist/resources/icons/die-six.svg" />
-      <img class="stat-roll-double expand no-border" title="{{localize 'HH.BearRollWithSkillTooltip'}}"
+      <img class="stat-roll-double expand no-border" title="{{localize 'DW.WizardRollWithWitTooltip'}}"
         data-roll="2d6kl" src="/systems/honey-heist/resources/icons/die-six-double.svg" />
     </div>
     <div id="stat-wild">
       <h2 class="stat-title">Wild</h2>
-      <img class="stat-button no-border expand" title="{{localize 'HH.MoveToCriminalTooltip'}}"
+      <img class="stat-button no-border expand" title="{{localize 'DW.AddToWildTooltip'}}"
         src="/systems/honey-heist/resources/icons/wild.svg" />
       <input class="stat-value" name="stats.wild" data-type="Number" value="{{system.stats.wild}}"
         readonly="readonly" />
-      <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'HH.CriminalRollTooltip'}}"
+      <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'DW.WildRollTooltip'}}"
         src="/systems/honey-heist/resources/icons/die-six.svg" />
       <img class="stat-roll-double expand no-border" data-roll="2d6kl"
-        title="{{localize 'HH.CriminalRollWithSkillTooltip'}}"
+        title="{{localize 'DW.WildRollWithWitTooltip'}}"
         src="/systems/honey-heist/resources/icons/die-six-double.svg" />
     </div>
   </div>
   <div id="middle-panel">
     {{!-- Attributes --}}
     <div id="attributes-panel">
-      <h2>{{localize 'HH.AttributesTitle'}}</h2>
+      <h2>{{localize 'DW.AttributesTitle'}}</h2>
       <div id="attributes">
         <div class="attribute">
-          <label>{{localize 'HH.BearDesciptor'}}</label>
-          <select name="system.descriptor" data-type="String">
-            {{#select system.descriptor}}
-              {{#each system.descriptors as |descriptor key|}}
-                <option value="{{key}}">{{descriptor.label}}</option>
+          <label>{{localize 'DW.ClassDescriptor'}}</label>
+          <select name="system.player-class" data-type="String">
+            {{#select system.player-class}}
+              {{#each system.player-classes as |player-class key|}}
+                <option value="{{key}}">{{player-class.label}}</option>
               {{/each}}
             {{/select}}
           </select>
@@ -48,11 +48,11 @@
             src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
         </div>
         <div class="attribute">
-          <label>{{localize 'HH.BearType'}}</label>
-          <select name="system.bear-type" data-type="String">
-            {{#select system.bear-type}}
-              {{#each system.bear-types as |bear-type key|}}
-                <option value="{{key}}">{{bear-type.label}}</option>
+          <label>{{localize 'DW.Prop1'}}</label>
+          <select name="system.prop-1" data-type="String">
+            {{#select system.prop-1}}
+              {{#each system.props-1 as |prop-1 key|}}
+                <option value="{{key}}">{{prop-1.label}}</option>
               {{/each}}
             {{/select}}
           </select>
@@ -60,68 +60,32 @@
             src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
         </div>
         <div class="attribute">
-          <label>{{localize 'HH.BearRole'}}</label>
-          <select name="system.role" data-type="String">
-            {{#select system.role}}
-              {{#each system.roles as |role key|}}
-                <option value="{{key}}">{{role.label}}</option>
+          <label>{{localize 'DW.Prop2'}}</label>
+          <select name="system.prop-2" data-type="String">
+            {{#select system.prop-2}}
+              {{#each system.props-2 as |prop-2 key|}}
+                <option value="{{key}}">{{prop-2.label}}</option>
               {{/each}}
             {{/select}}
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
             src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
-        </div>
-        <div class="attribute">
-          <label>{{localize 'HH.BearHat'}}</label>
-          <select id="hat-roll" name="system.hat" data-type="String">
-            {{#select system.hat}}
-              {{#each system.hats as |hat key|}}
-                <option value="{{key}}">{{hat.label}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-          <img class="attribute-roll expand no-border" data-roll="1d8+1"
-            src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
-        </div>
-        <div class="attribute hat2">
-          <label>{{localize 'HH.BearHat1'}}</label>
-          <select name="system.hat2a" data-type="String">
-            {{#select system.hat2a}}
-              {{#each (removeProperty system.hats "roll-twice") as |hat key|}}
-                <option value="{{key}}">{{hat.label}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-          <img class="attribute-roll expand no-border" data-roll="1d7+1"
-            src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
-        </div>
-        <div class="attribute hat2">
-          <label>{{localize 'HH.BearHat2'}}</label>
-          <select name="system.hat2b" data-type="String">
-            {{#select system.hat2b}}
-              {{#each (removeProperty system.hats "roll-twice") as |hat key|}}
-                <option value="{{key}}">{{hat.label}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-          <img class="attribute-roll expand no-border" data-roll="1d7+1"
-            src="/systems/honey-heist/resources/icons/die-eight.svg" height="25" width="25" />
         </div>
       </div>
     </div>
     {{!-- Biography --}}
     <div id="bio-panel">
-      <h2>{{localize 'HH.BiographyTitle'}}</h2>
+      <h2>{{localize 'DW.BiographyTitle'}}</h2>
       {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
     </div>
   </div>
   {{!-- Items! --}}
   <div id="items-panel">
-    <h2>{{localize 'HH.ItemsTitle'}}</h2>
+    <h2>{{localize 'DW.ItemsTitle'}}</h2>
     <ol>
       <li class="items-header flexrow">
-        <h3 class="item-name flexrow">{{localize 'HH.ItemName'}}</h3>
-        <div class="item-detail item-description">{{localize 'HH.ItemDescription'}}</div>
+        <h3 class="item-name flexrow">{{localize 'DW.ItemName'}}</h3>
+        <div class="item-detail item-description">{{localize 'DW.ItemDescription'}}</div>
         <div class="item-controls flexrow">
           <span class="add-item"><i class="fas fa-plus"></i> Add Item</span>
         </div>
@@ -138,8 +102,8 @@
           {{formatHTMLMessage system.description}}
         </div>
         <div class="item-controls flexrow">
-          <a class="item-control item-edit" title="{{localize 'HH.ItemEdit'}}"><i class="fas fa-edit"></i></a>
-          <a class="item-control item-delete" title="{{localize 'HH.ItemDelete'}}"><i class="fas fa-trash"></i></a>
+          <a class="item-control item-edit" title="{{localize 'DW.ItemEdit'}}"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" title="{{localize 'DW.ItemDelete'}}"><i class="fas fa-trash"></i></a>
         </div>
       </li>
       {{/each}}

@@ -60,7 +60,7 @@
 					"dtype": "String"
 				}
 			},
-			"prop-1s": {
+			"props-1": {
 				"none": {
 					"label": "Roll",
 					"dtype": "String"
@@ -90,7 +90,7 @@
 					"dtype": "String"
 				}
 			},
-			"prop-2s": {
+			"props-2": {
 				"none": {
 					"label": "Roll",
 					"dtype": "String"

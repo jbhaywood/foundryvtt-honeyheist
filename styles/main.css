@@ -14,7 +14,7 @@ body {
   background: #dbcbbd;
 }
 .app {
-  background: #87431d;
+  background: #ffc80d;
 }
 body {
   background: #c87941;
@@ -43,10 +43,10 @@ select:focus,
 textarea:focus,
 input[type="text"]:focus {
   outline: 1px solid #290001;
-  box-shadow: 0 0 5px #87431d;
+  box-shadow: 0 0 5px #ffc80d;
 }
 a:hover {
-  text-shadow: 0 0 8px #87431d;
+  text-shadow: 0 0 8px #ffc80d;
 }
 select,
 button,
@@ -57,7 +57,7 @@ form button {
   border: 1px solid #290001;
 }
 button:hover {
-  box-shadow: 0 0 10px #87431d;
+  box-shadow: 0 0 10px #ffc80d;
 }
 #chat-log .message,
 #chat-log .message h2,
@@ -80,15 +80,15 @@ input[type="datetime-local"] {
   color: #1a1c20;
 }
 .tabs .item.active {
-  text-shadow: 0 0 10px #87431d;
+  text-shadow: 0 0 10px #ffc80d;
 }
 #sidebar-tabs {
-  box-shadow: 0 0 10px #87431d;
+  box-shadow: 0 0 10px #ffc80d;
   border-bottom: 1px solid #c87941;
 }
 #sidebar-tabs > .item.active {
   border: 1px solid #c87941;
-  box-shadow: 0 0 6px inset #87431d;
+  box-shadow: 0 0 6px inset #ffc80d;
 }
 .sidebar-tab .directory-header,
 #combat #combat-round {
