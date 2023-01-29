@@ -2,142 +2,121 @@
 	"Actor": {
 		"types": [ "character" ],
 		"character": {
-			"biography": "<p>It’s Honeycon. You are going to undertake the greatest heist the world has ever seen. Two Things – </p><p>One: You have a complex plan that requires precise timing.</p><p>Two: You are a GODDAMN BEAR.</p><p>You're not a talking bear, per se, but you can sort of mangle human speech through your bear mouth, maybe?</p>",
+			"biography": "<p>Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have \"inner power\" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.</p> <p>Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.</p><p>The exam is a series of trials designed to test your magical competence, skill, and control. Your party must complete these challenges while keeping up the illusion that you are wise and dignified wizards, not a ragtag bunch whose magic is from anything but book learning.</p>",
 			"stats": {
-				"bear": 3,
-				"criminal": 3
+				"wizard": 3,
+				"wild": 3
 			},
-			"descriptor": "",
-			"bear-type": "",
-			"role": "",
-			"hat": "",
-			"hat2a": "",
-			"hat2b": "",
-			"descriptors": {
+			"player-class": "",
+			"prop-1": "",
+			"prop-2": "",
+			"player-classes": {
 				"none": {
 					"label": "Roll",
 					"dtype": "String"
 				},
-				"rookie": {
-					"label": "Rookie",
+				"elemental-blood": {
+					"label": "Elemental Blood",
 					"dtype": "String"
 				},
-				"washed-up": {
-					"label": "Washed-up",
+				"muscle-magic": {
+					"label": "Muscle Magic",
 					"dtype": "String"
 				},
-				"retired": {
-					"label": "Retired",
+				"collector": {
+					"label": "Collector",
 					"dtype": "String"
 				},
-				"unhinged": {
-					"label": "Unhinged",
+				"alchemist": {
+					"label": "Alchemist",
 					"dtype": "String"
 				},
-				"slick": {
-					"label": "Slick",
+				"vampire": {
+					"label": "Vampire",
 					"dtype": "String"
 				},
-				"incompetent": {
-					"label": "Incompetent",
+				"magician": {
+					"label": "Magician",
+					"dtype": "String"
+				},
+				"bard": {
+					"label": "Bard",
+					"dtype": "String"
+				},
+				"2d6-familiars": {
+					"label": "2d6 Familiars in a Trenchcoat",
+					"dtype": "String"
+				},
+				"chosen-one": {
+					"label": "Chosen One",
+					"dtype": "String"
+				},
+				"druid": {
+					"label": "druid",
+					"dtype": "String"
+				},
+				"custom": {
+					"label": "custom",
 					"dtype": "String"
 				}
 			},
-			"bear-types": {
+			"prop-1s": {
 				"none": {
 					"label": "Roll",
 					"dtype": "String"
 				},
-				"grizzly": {
-					"label": "Grizzly (Terrify)",
+				"hat": {
+					"label": "A pointy hat and robes",
 					"dtype": "String"
 				},
-				"polar": {
-					"label": "Polar (Swim)",
+				"beard": {
+					"label": "A long fake beard",
 					"dtype": "String"
 				},
-				"panda": {
-					"label": "Panda (Eat anything that looks like bamboo)",
+				"tome": {
+					"label": "A massive tome",
 					"dtype": "String"
 				},
-				"black": {
-					"label": "Black (Climb)",
+				"fake-wand": {
+					"label": "A fake wand",
 					"dtype": "String"
 				},
-				"sun": {
-					"label": "Sun (Sense honey)",
+				"familar": {
+					"label": "A familiar",
 					"dtype": "String"
 				},
-				"honey-badger": {
-					"label": "Honey Badger (Carnage)",
+				"custom": {
+					"label": "Create your own item",
 					"dtype": "String"
 				}
 			},
-			"roles": {
+			"prop-2s": {
 				"none": {
 					"label": "Roll",
 					"dtype": "String"
 				},
-				"muscle": {
-					"label": "Muscle",
+				"glitter": {
+					"label": "A pocket full of glitter",
 					"dtype": "String"
 				},
-				"brains": {
-					"label": "Brains",
+				"belt": {
+					"label": "a belt with lots of pouches",
 					"dtype": "String"
 				},
-				"driver": {
-					"label": "Driver",
+				"glasses": {
+					"label": "A pair of spectacles",
 					"dtype": "String"
 				},
-				"hacker": {
-					"label": "Hacker",
+				"amulet": {
+					"label": "A costume-quality amulet",
 					"dtype": "String"
 				},
-				"thief": {
-					"label": "Thief",
+				"quill": {
+					"label": "A quill and parchment",
 					"dtype": "String"
 				},
-				"face": {
-					"label": "Face",
-					"dtype": "String"
-				}
-			},
-			"hats": {
-				"none": {
-					"label": "Roll",
-					"dtype": "String"
-				},
-				"tribly": {
-					"label": "Tribly",
-					"dtype": "String"
-				},
-				"top": {
-					"label": "Top",
-					"dtype": "String"
-				},
-				"bowler": {
-					"label": "Bowler",
-					"dtype": "String"
-				},
-				"flat-cap": {
-					"label": "Flat Cap",
-					"dtype": "String"
-				},
-				"cowboy": {
-					"label": "Cowboy",
-					"dtype": "String"
-				},
-				"fez": {
-					"label": "Fez",
-					"dtype": "String"
-				},
-				"crown": {
-					"label": "Crown",
-					"dtype": "String"
-				},
-				"roll-twice": {
-					"label": "Roll Twice!",
+				"custom": {
+					"label": "Create your own item",
 					"dtype": "String"
 				}
 			}
