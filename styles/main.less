@@ -2,7 +2,7 @@
 @import "variables.less";
 @import "utility.less";
 
-.honeyheist {
+.definitelywizards {
 	.window-content {
 		color: @textColor;
 		height: 100%;
@@ -16,11 +16,11 @@
 
 		#stat-panel {
 			gap: @margin;
-			height: 100px;
+			height: auto;
 			display: grid;
 			grid-template-columns: 100px 1fr 1fr;
 			grid-template-rows: 40px 1fr;
-			grid-template-areas: "portrait name name" "portrait bear criminal";
+			grid-template-areas: "portrait name name" "portrait wizard wild";
 			gap: @margin;
 
 			.profile-img {
@@ -37,22 +37,22 @@
 					margin: 0;
 				}
 			}
-			#stat-bear,
-			#stat-criminal {
-				grid-area: bear;
+			#stat-wizard,
+			#stat-wild {
+				grid-area: wizard;
 				gap: 0;
 				margin-top: -10px;
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
 				grid-template-rows: auto 1fr;
-				grid-template-areas: "title title title icon" "value die dice .";
+				grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
 				align-items: center;
 			}
-			#stat-bear {
-				grid-area: bear;
+			#stat-wizard {
+				grid-area: wizard;
 			}
-			#stat-criminal {
-				grid-area: criminal;
+			#stat-wild {
+				grid-area: wild;
 			}
 			.stat-title {
 				grid-area: title;
@@ -60,6 +60,18 @@
 			.stat-button {
 				height: 40px;
 				grid-area: icon;
+			}
+			.stat-button-plus {
+				height: 25px;
+				grid-area: plus;
+			}
+			.stat-button-minus {
+				height: 25px;
+				grid-area: minus;
+			}
+			.stat-button-reset {
+				height: 25px;
+				grid-area: reset;
 			}
 			.stat-roll-single {
 				height: 35px;

@@ -4,11 +4,11 @@
  */
 
 
-export class HoneyHeistActorSheet extends ActorSheet {
+export class DefinitelyWizardsActorSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			classes: ["honeyheist", "sheet", "actor"],
+			classes: ["definitelywizards", "sheet", "actor"],
 			template: "systems/definitely-wizards/templates/actor-sheet.html",
 			width: 750,
 			height: 625,
@@ -52,7 +52,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		});
 
 		html.find(".stat-button").click((ev) => {
-			const isBearRoll = this._isBearRoll(ev.currentTarget);
+			const isBearRoll = this._isWizardRoll(ev.currentTarget);
 			const updateValue = isBearRoll ? 1 : -1;
 			this._updateStatsAsync(updateValue, null, isBearRoll).then((isEnd) => {
 
@@ -69,7 +69,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		});
 
 		html.find(".stat-roll-single, .stat-roll-double").click(async (ev) => {
-			const isBearRoll = this._isBearRoll(ev.currentTarget);
+			const isBearRoll = this._isWizardRoll(ev.currentTarget);
 			const roller = $(ev.currentTarget);
 			const input = roller.siblings(".stat-value").get(0);
 			const currentValue = parseInt(input.value);
@@ -220,7 +220,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 		return endResult;
 	}
 
-	_isBearRoll(element) {
-		return element.parentElement.id === "stat-bear";
+	_isWizardRoll(element) {
+		return element.parentElement.id === "stat-wizard";
 	}
 }

@@ -8,26 +8,34 @@
     {{!-- Stats Block --}}
     <div id="stat-wizard">
       <h2 class="stat-title">Wizard</h2>
-      <img class="stat-button no-border expand" title="{{localize 'DW.AddToWizardTooltip'}}"
-        src="/systems/honey-heist/resources/icons/wizard.svg" />
       <input class="stat-value" name="stats.wizard" data-type="Number" value="{{system.stats.wizard}}"
         readonly="readonly" />
       <img class="stat-roll-single expand no-border" title="{{localize 'DW.WizardRollTooltip'}}" data-roll="1d6"
-        src="/systems/honey-heist/resources/icons/die-six.svg" />
+        src="/systems/definitely-wizards/resources/icons/die-six.svg" />
       <img class="stat-roll-double expand no-border" title="{{localize 'DW.WizardRollWithWitTooltip'}}"
-        data-roll="2d6kl" src="/systems/honey-heist/resources/icons/die-six-double.svg" />
+        data-roll="2d6kl" src="/systems/definitely-wizards/resources/icons/die-six-double.svg" />
+      <img class="stat-button-plus no-border expand" title="{{localize 'DW.AddToWizardTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/plus.svg" />
+      <img class="stat-button-minus no-border expand" title="{{localize 'DW.RemoveFromWizardTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/minus.svg" />
+      <img class="stat-button-reset no-border expand" title="{{localize 'DW.ResetWizardTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/reset.svg" />
     </div>
     <div id="stat-wild">
       <h2 class="stat-title">Wild</h2>
-      <img class="stat-button no-border expand" title="{{localize 'DW.AddToWildTooltip'}}"
-        src="/systems/honey-heist/resources/icons/wild.svg" />
       <input class="stat-value" name="stats.wild" data-type="Number" value="{{system.stats.wild}}"
         readonly="readonly" />
       <img class="stat-roll-single expand no-border" data-roll="1d6" title="{{localize 'DW.WildRollTooltip'}}"
-        src="/systems/honey-heist/resources/icons/die-six.svg" />
+        src="/systems/definitely-wizards/resources/icons/die-six.svg" />
       <img class="stat-roll-double expand no-border" data-roll="2d6kl"
         title="{{localize 'DW.WildRollWithWitTooltip'}}"
-        src="/systems/honey-heist/resources/icons/die-six-double.svg" />
+        src="/systems/definitely-wizards/resources/icons/die-six-double.svg" />
+      <img class="stat-button-plus no-border expand" title="{{localize 'DW.AddToWildTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/plus.svg" />
+      <img class="stat-button-minus no-border expand" title="{{localize 'DW.RemoveFromWildTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/minus.svg" />
+      <img class="stat-button-reset no-border expand" title="{{localize 'DW.ResetWildTooltip'}}"
+        src="/systems/definitely-wizards/resources/icons/reset.svg" />
     </div>
   </div>
   <div id="middle-panel">
@@ -45,7 +53,7 @@
             {{/select}}
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
-            src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
+            src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
         </div>
         <div class="attribute">
           <label>{{localize 'DW.Prop1'}}</label>
@@ -57,7 +65,7 @@
             {{/select}}
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
-            src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
+            src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
         </div>
         <div class="attribute">
           <label>{{localize 'DW.Prop2'}}</label>
@@ -69,7 +77,7 @@
             {{/select}}
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
-            src="/systems/honey-heist/resources/icons/die-six.svg" height="25" width="25" />
+            src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
         </div>
       </div>
     </div>

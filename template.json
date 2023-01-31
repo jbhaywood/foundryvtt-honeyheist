@@ -15,44 +15,44 @@
 					"label": "Roll",
 					"dtype": "String"
 				},
-				"elemental-blood": {
-					"label": "Elemental Blood",
-					"dtype": "String"
-				},
-				"muscle-magic": {
-					"label": "Muscle Magic",
-					"dtype": "String"
-				},
-				"collector": {
-					"label": "Collector",
+				"2d6-familiars": {
+					"label": "2d6 Familiars in a Trenchcoat",
 					"dtype": "String"
 				},
 				"alchemist": {
 					"label": "Alchemist",
 					"dtype": "String"
 				},
-				"vampire": {
-					"label": "Vampire",
-					"dtype": "String"
-				},
-				"magician": {
-					"label": "Magician",
-					"dtype": "String"
-				},
 				"bard": {
 					"label": "Bard",
-					"dtype": "String"
-				},
-				"2d6-familiars": {
-					"label": "2d6 Familiars in a Trenchcoat",
 					"dtype": "String"
 				},
 				"chosen-one": {
 					"label": "Chosen One",
 					"dtype": "String"
 				},
+				"collector": {
+					"label": "Collector",
+					"dtype": "String"
+				},
 				"druid": {
 					"label": "druid",
+					"dtype": "String"
+				},
+				"elemental-blood": {
+					"label": "Elemental Blood",
+					"dtype": "String"
+				},
+				"magician": {
+					"label": "Magician",
+					"dtype": "String"
+				},
+				"muscle-magic": {
+					"label": "Muscle Magic",
+					"dtype": "String"
+				},
+				"vampire": {
+					"label": "Vampire",
 					"dtype": "String"
 				},
 				"custom": {
@@ -66,23 +66,23 @@
 					"dtype": "String"
 				},
 				"hat": {
-					"label": "A pointy hat and robes",
+					"label": "A Pointy Hat and Robes",
 					"dtype": "String"
 				},
 				"beard": {
-					"label": "A long fake beard",
+					"label": "A Long Fake Beard",
 					"dtype": "String"
 				},
 				"tome": {
-					"label": "A massive tome",
+					"label": "A Massive Tome",
 					"dtype": "String"
 				},
 				"fake-wand": {
-					"label": "A fake wand",
+					"label": "A Fake Wand",
 					"dtype": "String"
 				},
 				"familar": {
-					"label": "A familiar",
+					"label": "A Familiar",
 					"dtype": "String"
 				},
 				"custom": {
@@ -96,23 +96,23 @@
 					"dtype": "String"
 				},
 				"glitter": {
-					"label": "A pocket full of glitter",
+					"label": "A Pocket Full of Glitter",
 					"dtype": "String"
 				},
 				"belt": {
-					"label": "a belt with lots of pouches",
+					"label": "A Belt with lots of Pouches",
 					"dtype": "String"
 				},
 				"glasses": {
-					"label": "A pair of spectacles",
+					"label": "A Pair of Spectacles",
 					"dtype": "String"
 				},
 				"amulet": {
-					"label": "A costume-quality amulet",
+					"label": "A Costume-quality Amulet",
 					"dtype": "String"
 				},
 				"quill": {
-					"label": "A quill and parchment",
+					"label": "A Quill and Parchment",
 					"dtype": "String"
 				},
 				"custom": {

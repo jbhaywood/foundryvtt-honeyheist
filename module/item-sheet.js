@@ -3,7 +3,7 @@
  * @extends {ItemSheet}
  */
 
-export class HoneyHeistItemSheet extends ItemSheet {
+export class DefinitelyWizardsItemSheet extends ItemSheet {
     /** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

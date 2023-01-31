@@ -11,29 +11,29 @@ body {
   background-image: none;
 }
 .window-app .window-content {
-  background: #dbcbbd;
+  background: #fdf2c3;
 }
 .app {
-  background: #ffc80d;
+  background: #7C5C05;
 }
 body {
-  background: #c87941;
+  background: #E2E0CF;
 }
 #chat-log .message,
 #chat-log .message.whisper,
 #chat-form textarea {
   background: none;
-  background: #dbcbbd;
+  background: #fdf2c3;
 }
 .flavor-text {
-  color: #1a1c20;
+  color: #121212;
 }
 h2 {
   font-family: Title;
-  border-bottom: 2px solid #1a1c20;
+  border-bottom: 2px solid #121212;
 }
 input[type="text"] {
-  border: 1px solid #1a1c20;
+  border: 1px solid #121212;
   border-radius: 0px;
   font-family: Title;
   font-size: 1.3em;
@@ -42,11 +42,11 @@ input[type="text"] {
 select:focus,
 textarea:focus,
 input[type="text"]:focus {
-  outline: 1px solid #290001;
-  box-shadow: 0 0 5px #ffc80d;
+  outline: 1px solid #19160D;
+  box-shadow: 0 0 5px #7C5C05;
 }
 a:hover {
-  text-shadow: 0 0 8px #ffc80d;
+  text-shadow: 0 0 8px #7C5C05;
 }
 select,
 button,
@@ -54,10 +54,10 @@ textarea,
 form button {
   font-family: Body;
   border-radius: 0;
-  border: 1px solid #290001;
+  border: 1px solid #19160D;
 }
 button:hover {
-  box-shadow: 0 0 10px #ffc80d;
+  box-shadow: 0 0 10px #7C5C05;
 }
 #chat-log .message,
 #chat-log .message h2,
@@ -67,39 +67,39 @@ input,
 input[type="text"],
 input[type="password"],
 input[type="datetime-local"] {
-  color: #1a1c20;
+  color: #121212;
 }
 .sheet-footer {
   margin-top: 10px;
 }
 .fa-cog:before,
 .fa-plus:before {
-  color: #dbcbbd;
+  color: #fdf2c3;
 }
 .window-content .fa-plus:before {
-  color: #1a1c20;
+  color: #121212;
 }
 .tabs .item.active {
-  text-shadow: 0 0 10px #ffc80d;
+  text-shadow: 0 0 10px #7C5C05;
 }
 #sidebar-tabs {
-  box-shadow: 0 0 10px #ffc80d;
-  border-bottom: 1px solid #c87941;
+  box-shadow: 0 0 10px #7C5C05;
+  border-bottom: 1px solid #E2E0CF;
 }
 #sidebar-tabs > .item.active {
-  border: 1px solid #c87941;
-  box-shadow: 0 0 6px inset #ffc80d;
+  border: 1px solid #E2E0CF;
+  box-shadow: 0 0 6px inset #7C5C05;
 }
 .sidebar-tab .directory-header,
 #combat #combat-round {
-  border-bottom: 2px solid #c87941;
+  border-bottom: 2px solid #E2E0CF;
 }
 #combat #combat-controls {
-  border-top: 2px solid #c87941;
+  border-top: 2px solid #E2E0CF;
 }
 #settings h2 {
-  border-top: 1px solid #290001;
-  border-bottom: 1px solid #290001;
+  border-top: 1px solid #19160D;
+  border-bottom: 1px solid #19160D;
 }
 .sidebar-tab .directory-list .directory-item img {
   flex: 0 0 30px;
@@ -136,71 +136,83 @@ input[type="datetime-local"] {
 .error-red {
   color: darkred !important;
 }
-.honeyheist .window-content {
-  color: #1a1c20;
+.definitelywizards .window-content {
+  color: #121212;
   height: 100%;
   padding: 10px;
   overflow-y: auto;
 }
-.honeyheist .sheet-panel {
+.definitelywizards .sheet-panel {
   display: grid;
   grid-template-rows: max-content max-content 1fr;
   gap: 10px;
 }
-.honeyheist .sheet-panel #stat-panel {
-  height: 100px;
+.definitelywizards .sheet-panel #stat-panel {
+  height: auto;
   display: grid;
   grid-template-columns: 100px 1fr 1fr;
   grid-template-rows: 40px 1fr;
-  grid-template-areas: "portrait name name" "portrait bear criminal";
+  grid-template-areas: "portrait name name" "portrait wizard wild";
   gap: 10px;
 }
-.honeyheist .sheet-panel #stat-panel .profile-img {
+.definitelywizards .sheet-panel #stat-panel .profile-img {
   grid-area: portrait;
   height: 100px;
 }
-.honeyheist .sheet-panel #stat-panel .char-name {
+.definitelywizards .sheet-panel #stat-panel .char-name {
   grid-area: name;
   border-bottom: 0;
 }
-.honeyheist .sheet-panel #stat-panel .char-name input {
+.definitelywizards .sheet-panel #stat-panel .char-name input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-.honeyheist .sheet-panel #stat-panel #stat-bear,
-.honeyheist .sheet-panel #stat-panel #stat-criminal {
-  grid-area: bear;
+.definitelywizards .sheet-panel #stat-panel #stat-wizard,
+.definitelywizards .sheet-panel #stat-panel #stat-wild {
+  grid-area: wizard;
   gap: 0;
   margin-top: -10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto 1fr;
-  grid-template-areas: "title title title icon" "value die dice .";
+  grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
   align-items: center;
 }
-.honeyheist .sheet-panel #stat-panel #stat-bear {
-  grid-area: bear;
+.definitelywizards .sheet-panel #stat-panel #stat-wizard {
+  grid-area: wizard;
 }
-.honeyheist .sheet-panel #stat-panel #stat-criminal {
-  grid-area: criminal;
+.definitelywizards .sheet-panel #stat-panel #stat-wild {
+  grid-area: wild;
 }
-.honeyheist .sheet-panel #stat-panel .stat-title {
+.definitelywizards .sheet-panel #stat-panel .stat-title {
   grid-area: title;
 }
-.honeyheist .sheet-panel #stat-panel .stat-button {
+.definitelywizards .sheet-panel #stat-panel .stat-button {
   height: 40px;
   grid-area: icon;
 }
-.honeyheist .sheet-panel #stat-panel .stat-roll-single {
+.definitelywizards .sheet-panel #stat-panel .stat-button-plus {
+  height: 25px;
+  grid-area: plus;
+}
+.definitelywizards .sheet-panel #stat-panel .stat-button-minus {
+  height: 25px;
+  grid-area: minus;
+}
+.definitelywizards .sheet-panel #stat-panel .stat-button-reset {
+  height: 25px;
+  grid-area: reset;
+}
+.definitelywizards .sheet-panel #stat-panel .stat-roll-single {
   height: 35px;
   grid-area: die;
 }
-.honeyheist .sheet-panel #stat-panel .stat-roll-double {
+.definitelywizards .sheet-panel #stat-panel .stat-roll-double {
   height: 35px;
   grid-area: dice;
 }
-.honeyheist .sheet-panel #stat-panel .stat-value {
+.definitelywizards .sheet-panel #stat-panel .stat-value {
   font-size: 45px;
   font-family: Title;
   height: 50px;
@@ -210,76 +222,76 @@ input[type="datetime-local"] {
   background: transparent;
   grid-area: value;
 }
-.honeyheist .sheet-panel #attributes-panel,
-.honeyheist .sheet-panel #bio-panel {
+.definitelywizards .sheet-panel #attributes-panel,
+.definitelywizards .sheet-panel #bio-panel {
   max-height: 260px;
 }
-.honeyheist .sheet-panel #attributes-panel {
+.definitelywizards .sheet-panel #attributes-panel {
   margin-right: 0.5rem;
 }
-.honeyheist .sheet-panel #attributes-panel #attributes {
+.definitelywizards .sheet-panel #attributes-panel #attributes {
   display: grid;
   gap: 10px;
   margin-top: 10px;
 }
-.honeyheist .sheet-panel #attributes-panel .attribute {
+.definitelywizards .sheet-panel #attributes-panel .attribute {
   align-items: center;
   display: grid;
   gap: 10px;
   grid-template-columns: 72px 200px 1fr;
 }
-.honeyheist .sheet-panel #bio-panel {
+.definitelywizards .sheet-panel #bio-panel {
   display: grid;
   grid-template-rows: max-content 1fr;
   flex: 1;
 }
-.honeyheist .sheet-panel #bio-panel .editor {
+.definitelywizards .sheet-panel #bio-panel .editor {
   min-height: 150px;
   max-height: 260px;
   overflow-y: auto;
 }
-.honeyheist .sheet-panel #middle-panel {
+.definitelywizards .sheet-panel #middle-panel {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   margin-top: 14px;
 }
-.honeyheist .sheet-panel #items-panel .hh-item-list {
+.definitelywizards .sheet-panel #items-panel .hh-item-list {
   overflow-y: auto;
   height: 175px;
 }
-.honeyheist .sheet-panel #items-panel .add-item {
+.definitelywizards .sheet-panel #items-panel .add-item {
   font-size: 0.7rem;
   align-self: center;
 }
-.honeyheist .sheet-panel #items-panel .add-item:hover {
+.definitelywizards .sheet-panel #items-panel .add-item:hover {
   text-shadow: 2px 2px 4px var(--color-text-dark-5);
   cursor: pointer;
 }
-.honeyheist .sheet-panel #items-panel ol {
+.definitelywizards .sheet-panel #items-panel ol {
   list-style: none;
   margin: 0;
   overflow-y: auto;
   scrollbar-width: thin;
   padding: 0 5px;
 }
-.honeyheist .sheet-panel #items-panel .items-header {
+.definitelywizards .sheet-panel #items-panel .items-header {
   border-bottom: 1px solid var(--color-border-dark-5);
 }
-.honeyheist .sheet-panel #items-panel .items-header .item-name {
+.definitelywizards .sheet-panel #items-panel .items-header .item-name {
   padding-left: 5px;
   text-align: left;
   border-bottom: none;
 }
-.honeyheist .sheet-panel #items-panel .item-roll {
+.definitelywizards .sheet-panel #items-panel .item-roll {
   cursor: pointer;
 }
-.honeyheist .sheet-panel #items-panel .item-name {
+.definitelywizards .sheet-panel #items-panel .item-name {
   margin: 0;
   overflow: hidden;
   align-items: center;
 }
-.honeyheist .sheet-panel #items-panel .item-name .item-image {
+.definitelywizards .sheet-panel #items-panel .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
   width: 30px;
@@ -287,11 +299,11 @@ input[type="datetime-local"] {
   background-position: 50% 0;
   border: none;
 }
-.honeyheist .sheet-panel #items-panel .item-controls {
+.definitelywizards .sheet-panel #items-panel .item-controls {
   flex: 0 0 68px;
   align-items: center;
 }
-.honeyheist .chatItem .item-image {
+.definitelywizards .chatItem .item-image {
   flex: 0 0 15px;
   height: 15px;
   width: 15px;
