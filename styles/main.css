@@ -234,11 +234,24 @@ input[type="datetime-local"] {
   gap: 10px;
   margin-top: 10px;
 }
+.definitelywizards .sheet-panel #attributes-panel #attributes label {
+  grid-area: attr-label;
+}
+.definitelywizards .sheet-panel #attributes-panel #attributes select {
+  grid-area: attr-select;
+}
+.definitelywizards .sheet-panel #attributes-panel #attributes img {
+  grid-area: attr-roller;
+}
+.definitelywizards .sheet-panel #attributes-panel #attributes input {
+  grid-area: attr-custom;
+}
 .definitelywizards .sheet-panel #attributes-panel .attribute {
   align-items: center;
   display: grid;
   gap: 10px;
   grid-template-columns: 72px 200px 1fr;
+  grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom .";
 }
 .definitelywizards .sheet-panel #bio-panel {
   display: grid;

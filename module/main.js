@@ -65,8 +65,32 @@ Hooks.on("renderDefinitelyWizardsActorSheet", (ev) => {
 	const root = ev.element[0];
 	const wizardStatElement = root.querySelector("#stat-wizard .stat-value");
 	const wildStatElement = root.querySelector("#stat-wild .stat-value");
+	const classElement = root.querySelector(".attribute select[name='system.player-class']");
+	const prop1Element = root.querySelector(".attribute select[name='system.prop-1']");
+	const prop2Element = root.querySelector(".attribute select[name='system.prop-2']");
 	let wizardVal = parseInt(wizardStatElement.value, 10);
 	let wildVal = parseInt(wildStatElement.value, 10);
+	let classValue = classElement.value;
+	let prop1Value = prop1Element.value;
+	let prop2Value = prop2Element.value;
+
+	if (classValue === "custom") {
+		$(root.querySelector(".customClass")).show();
+	} else {
+		$(root.querySelector(".customClass")).hide();
+	}
+
+	if (prop1Value === "custom") {
+		$(root.querySelector(".customProp1")).show();
+	} else {
+		$(root.querySelector(".customProp1")).hide();
+	}
+
+	if (prop2Value === "custom") {
+		$(root.querySelector(".customProp2")).show();
+	} else {
+		$(root.querySelector(".customProp2")).hide();
+	}
 
 	if (wizardVal === 6) {
 		wizardStatElement.classList.add("error-red");

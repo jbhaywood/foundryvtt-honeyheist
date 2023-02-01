@@ -102,12 +102,29 @@
 				display: grid;
 				gap: @margin;
 				margin-top: @margin;
+
+				label {
+					grid-area: attr-label;
+				}
+
+				select {
+					grid-area: attr-select;
+				}
+
+				img {
+					grid-area: attr-roller;
+				}
+
+				input {
+					grid-area: attr-custom;
+				}
 			}
 			.attribute {
 				align-items: center;
 				display: grid;
 				gap: @margin;
 				grid-template-columns: 72px 200px 1fr;
+				grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom ."
 			}
 		}
 		#bio-panel {

@@ -22,12 +22,10 @@
 	"DW.RollMessage": "Roll for",
 	"DW.Wizard": "Wizard",
 	"DW.Wild": "Wild",
-	"DW.BearToCriminal": "Do a flashback scene in which you and the other bears plan out the heist over coffee and cigarrettes in the back room of a seedy bar to move one point from Bear into Criminal.",
-	"DW.CriminalToBear": "Describe how you eat a load of honey to move a point from Criminal into Bear.",
-	"DW.GreedMessage": "GREED: When the plan goes off without a hitch, a point is moved from Bear into Criminal.",
-	"DW.FrustrationMessage": "FRUSTRATION: When the plan fails and you run into difficulty, a point is moved from Criminal into Bear.",
-	"DW.BearEndMessage": "THE END! You flip out bear style and lose it, presumably to be picked up by animal control in half an hour or so.",
-	"DW.CriminalEndMessage": "THE END! You are lured into a life of crime and betray the party",
+	"DW.WizardSuccessMessage" : "Success. The spell works how you intended. Describe the effect and add 1 point to Wizard",
+	"DW.WizardFailMessage" : "Failure. Roll Consequences",
+	"DW.WildSuccessMessage" : "The spell works as intended. Explain how you hide or disguise your spell or add 1 point to Wild",
+	"DW.WildFailMessage" : "Failure. Roll Consequences",
 	"DW.RollForWizard": "Roll for Wizard",
 	"DW.RollForWild": "Roll for Wild",
 	"DW.DefaultBio": "Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have \"inner power\" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam. The exam is a series of trials designed to test your magical competence, skill, and control. Your party must complete these challenges while keeping up the illusion that you are wise and dignified wizards, not a ragtag bunch whose magic is from anything but book learning.",
@@ -38,5 +36,6 @@
 	"DW.ItemDelete": "Delete",
 	"DW.NewItemName": "New Item",
 	"DW.ConfirmItemDelete": "Confirm Deletion of Item",
-	"DW.ConfirmItemDeleteText": "Are you sure you wish to delete this item?"
+	"DW.ConfirmItemDeleteText": "Are you sure you wish to delete this item?",
+	"DW.CustomClass": "Custom Class"
 }

@@ -43,9 +43,9 @@
     <div id="attributes-panel">
       <h2>{{localize 'DW.AttributesTitle'}}</h2>
       <div id="attributes">
-        <div class="attribute">
+        <div class="attribute" id="player-class">
           <label>{{localize 'DW.ClassDescriptor'}}</label>
-          <select name="system.player-class" data-type="String">
+          <select class="attribute-select" name="system.player-class" data-type="String">
             {{#select system.player-class}}
               {{#each system.player-classes as |player-class key|}}
                 <option value="{{key}}">{{player-class.label}}</option>
@@ -54,6 +54,7 @@
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
             src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
+          <input class="customClass" name="customClass" type="text" placeholder="{{localize DW.CustomClass}}" />
         </div>
         <div class="attribute">
           <label>{{localize 'DW.Prop1'}}</label>
@@ -66,6 +67,7 @@
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
             src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
+          <input class="customProp1" name="customProp1" type="text" placeholder="{{localize DW.CustomProp}}" />
         </div>
         <div class="attribute">
           <label>{{localize 'DW.Prop2'}}</label>
@@ -78,6 +80,7 @@
           </select>
           <img class="attribute-roll expand no-border" data-roll="1d6+1"
             src="/systems/definitely-wizards/resources/icons/die-six.svg" height="25" width="25" />
+          <input class="customProp2" name="customProp2" type="text" placeholder="{{localize DW.CustomItem}}" />
         </div>
       </div>
     </div>

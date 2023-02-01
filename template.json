@@ -36,7 +36,7 @@
 					"dtype": "String"
 				},
 				"druid": {
-					"label": "druid",
+					"label": "Druid",
 					"dtype": "String"
 				},
 				"elemental-blood": {
@@ -56,7 +56,7 @@
 					"dtype": "String"
 				},
 				"custom": {
-					"label": "custom",
+					"label": "Custom Class",
 					"dtype": "String"
 				}
 			},
