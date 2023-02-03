@@ -1,6 +1,7 @@
 import { DefinitelyWizardsActor } from "./actor.js";
 import { DefinitelyWizardsActorSheet } from "./actor-sheet.js";
 import { DefinitelyWizardsItemSheet } from "./item-sheet.js";
+import * as Chat from "./chat.js"
 
 Hooks.once("init", async function () {
 	console.log(`DefinitelyWizards: Initializing`);
@@ -98,3 +99,6 @@ Hooks.on("renderDefinitelyWizardsActorSheet", (ev) => {
 		wildStatElement.classList.add("error-red");
 	}
 });
+
+
+Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));

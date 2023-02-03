@@ -37,5 +37,12 @@
 	"DW.NewItemName": "New Item",
 	"DW.ConfirmItemDelete": "Confirm Deletion of Item",
 	"DW.ConfirmItemDeleteText": "Are you sure you wish to delete this item?",
-	"DW.CustomClass": "Custom Class"
+	"DW.CustomClass": "Custom Class",
+	"DW.RollForConsequences": "Roll for Consequences",
+	"DW.WizardDudConsequence": "1-2: The spell is a dud; nothing happens.",
+	"DW.WizardMinorFailConsequence": "3-4: You unintentionally use Wild magic and cast a Wild spell of your choice. Proceed as if this was a success but add 1 to Wild.",
+	"DW.WizardCriticalFailConsequence": "5-6: The spell fails dramatically. Describe the outcome and add 1 to Wild.",
+	"DW.WildDudConsequence": "1-2: The spell peters out and doesn’t do anything.",
+	"DW.WildMinorFailConsequence": "3-4: The spell works, but with a negative side effect. Add 1 to Wild.",
+	"DW.WildCriticalFailConsequence": "5-6: The spell fails dramatically. Describe the outcome and add 1 to Wild"
 }

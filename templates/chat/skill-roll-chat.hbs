@@ -1,0 +1,54 @@
+<div class="chat-card skill-roll" data-owner-id="{{owner}}" data-isWizardRoll="{{isWizardRoll}}" data-isSuccess="{{isSuccess}}">
+    <div class="card-content">
+        <p>
+            {{#if isWizardRoll}}
+                {{localize "DW.RollForWizard"}}:
+            {{else}}
+                {{localize "DW.RollForWild"}}:
+            {{/if}}
+            {{#if isSuccess}}
+                {{localize "DW.Success"}}
+            {{else}}
+                {{localize "DW.Failed"}}
+            {{/if}}
+        </p>
+
+        {{#if isSuccess}}
+            <p>
+                {{#if isWizardRoll}}
+                    {{localize "DW.WizardSuccessMessage"}}
+                {{else}}
+                    {{localize "DW.WildSuccessMessage"}}
+                {{/if}}
+            </p>
+        {{else}}
+            <p>
+                {{#if isWizardRoll}}
+                    {{localize "DW.WizardFailMessage"}}
+                {{else}}
+                    {{localize "DW.WildFailMessage"}}
+                {{/if}}
+            </p>
+        {{/if}}
+    </div>
+
+    <div class="dice-roll">
+        <div class="dice-result">
+            <div class="dice-formula">
+                {{diceFormula}}
+             </div>
+            <h4 class="dice-total">{{diceTotal}}</h4>
+        </div>
+    </div>
+
+    {{#unless isSuccess}}
+    <div class="card-buttons">
+        
+            {{#if isWizardRoll}}
+                <button class="rollConsequences">{{localize "DW.Wizard"}}: {{localize "DW.RollForConsequences"}}</button>
+            {{else}}
+                <button class="rollConsequences">{{localize "DW.Wild"}}: {{localize "DW.RollForConsequences"}}</button>
+            {{/if}}
+    </div>
+    {{/unless}}
+</div>

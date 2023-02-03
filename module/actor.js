@@ -3,14 +3,21 @@
  * @extends {Actor}
  */
 export class DefinitelyWizardsActor extends Actor {
-	/** @override */
-	// getRollData() {
-	// 	const data = super.getRollData();
-	// 	return data;
-	// }
-	// /** @override */
-	// prepareData() {
-	// 	super.prepareData();
-	// 	const actorData = this.data;
-	// }
+    /** @override */
+    // getRollData() {
+    //  const data = super.getRollData();
+    //  return data;
+    // }
+    // /** @override */
+    // prepareData() {
+    //  super.prepareData();
+    //  const actorData = this.data;
+    // }
+
+
+    updateStat(isWizard, amount) {
+        console.log("Update stat");
+
+        //TODO - stat update and end state conditions
+    }
 }

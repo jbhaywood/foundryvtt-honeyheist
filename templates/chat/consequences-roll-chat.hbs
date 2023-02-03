@@ -1,0 +1,25 @@
+<div class="chat-card consequences-roll" data-owner-id="{{owner}}" data-isWizardRoll="{{isWizardRoll}}">
+    <div class="card-content">
+        <p>
+            {{#if isWizardRoll}}
+                {{localize "DW.Wizard"}}:
+            {{else}}
+                {{localize "DW.Wild"}}:
+            {{/if}}
+            {{localize "DW.RollForConsequences"}}
+        </p>
+
+        <p>
+            {{resultMessage}}
+        </p>
+    </div>
+
+    <div class="dice-roll">
+        <div class="dice-result">
+            <div class="dice-formula">
+                {{diceFormula}}
+             </div>
+            <h4 class="dice-total">{{diceTotal}}</h4>
+        </div>
+    </div>
+</div>
