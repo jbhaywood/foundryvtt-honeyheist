@@ -1,0 +1,118 @@
+{
+  "name": "FinalTest",
+  "sort": 100006,
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "YEZR9oAxF9x6FYR6",
+      "text": "The key to the exit is in 3 parts, each on a necklace worn by 3 massive stone golems.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "GldfPM7Jep3V79R3",
+      "text": "A giant spider has made this room its nest.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "MRfL2wDWKAsKgVyU",
+      "text": "A group of animatronic soldiers guard the exit.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "VZiqVUr0mykfP5hL",
+      "text": "A huge stone obelisk shoots near-deadly lasers at anything that moves.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "aN9vjOaUYvzRoyLn",
+      "text": "You must defeat another group of wizards taking the test.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "1Y1yOZgQpsyJLigX",
+      "text": "Come up with your own or roll again twice.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "_id": "x3q6d9FeDJrPiP5P",
+  "flags": {
+    "exportSource": {
+      "world": "defwiz-test",
+      "system": "definitely-wizards",
+      "coreVersion": "10.291",
+      "systemVersion": "1"
+    }
+  },
+  "_stats": {
+    "systemId": "definitely-wizards",
+    "systemVersion": "1",
+    "coreVersion": "10.291",
+    "createdTime": 1675446575114,
+    "modifiedTime": 1675446617706,
+    "lastModifiedBy": "7tb3mKRi81OTM7ij"
+  }
+}

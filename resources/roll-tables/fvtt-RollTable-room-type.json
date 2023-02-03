@@ -1,0 +1,117 @@
+{
+  "name": "RoomType",
+  "sort": 100002,
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Roll for all chambers.",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "JWc8tICHS5ZqhxaF",
+      "text": "A typical dungeon with crates and weapons lying around and at least one skeleton",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "9APVWPKBoAhVXNni",
+      "text": "A lavish study with suits of armor, paintings, mirrors, etc.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "ysjBwmvPlwRDnyrI",
+      "text": "What appears to be an outdoor scene, but is actually a combination of illusion and real set pieces contained within a large room",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "HNDH7B46YmCRbksw",
+      "text": "A kitchen for a large manor, complete with wood-burning ovens and a large pantry",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "MoOt0rwplBVgRFEF",
+      "text": "A natural cavern with no clear exit and several branching tunnels",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "NdLo9rkKQzzhIYKf",
+      "text": "A room set up like a life-size chess board or other board game",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "flags": {
+    "exportSource": {
+      "world": "defwiz-test",
+      "system": "definitely-wizards",
+      "coreVersion": "10.291",
+      "systemVersion": "1"
+    }
+  },
+  "_stats": {
+    "systemId": "definitely-wizards",
+    "systemVersion": "1",
+    "coreVersion": "10.291",
+    "createdTime": 1675446288683,
+    "modifiedTime": 1675446346267,
+    "lastModifiedBy": "7tb3mKRi81OTM7ij"
+  }
+}

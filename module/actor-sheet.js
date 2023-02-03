@@ -56,23 +56,26 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             roll.toMessage({
                 user: game.user.id,  // avoid deprecation warning, backwards compatible
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
+                content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`,
+                roll: roll,
+                sound: CONFIG.sounds.dice,
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL
             });
         });
 
         html.find(".stat-button-plus").click((ev) => {
             const isWizardRoll = this._isWizardRoll(ev.currentTarget);
-            this._updateStatsAsync(1, null, isWizardRoll);
+            this.actor.updateStat(isWizardRoll, 1);
         });
 
         html.find(".stat-button-minus").click((ev) => {
             const isWizardRoll = this._isWizardRoll(ev.currentTarget);
-            this._updateStatsAsync(-1, null, isWizardRoll);
+            this.actor.updateStat(isWizardRoll, -1);
         });
 
         html.find(".stat-button-reset").click((ev) => {
             const isWizardRoll = this._isWizardRoll(ev.currentTarget);
-            this._resetStatAsync(isWizardRoll);
+            this.actor.resetStat(isWizardRoll);
         });
 
         html.find(".stat-roll-single, .stat-roll-double").click(async (ev) => {
@@ -96,13 +99,16 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
             };
 
             if (isSuccess && isWizardRoll) {
-                this._updateStatsAsync(1, null, isWizardRoll);
+                this.actor.updateStat(isWizardRoll, 1);
             }
 
             ChatMessage.create({
                 user: game.user.id,
                 speaker: ChatMessage.getSpeaker({actor: this.actor}),
-                content: await renderTemplate(template, templateData)
+                content: await renderTemplate(template, templateData),
+                roll: roll,
+                sound: CONFIG.sounds.dice,
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL
              });
 
         });
@@ -159,100 +165,6 @@ export class DefinitelyWizardsActorSheet extends ActorSheet {
 
             await ChatMessage.create(messageData);
         })
-    }
-
-    async _resetStatAsync(isWizardRoll) {
-        let wizardStat = this.actor.system.stats.wizard;
-        let wildStat = this.actor.system.stats.wild;
-
-        if (typeof wizardStat === "string") {
-            wizardStat = parseInt(wizardStat);
-        }
-
-        if (typeof wildStat === "string") {
-            wildStat = parseInt(wildStat);
-        }
-
-        if (isWizardRoll) {
-            wizardStat = 2;
-        } else {
-            wildStat = 2;
-        }
-
-        await this.actor.update({ "system.stats.wizard": wizardStat });
-        await this.actor.update({ "system.stats.wild": wildStat });
-
-        return true;
-    }
-
-    async _updateStatsAsync(offset, roll, isWizardRoll) {
-        console.log("update stats");
-        let wizardStat = this.actor.system.stats.wizard;
-        let wildStat = this.actor.system.stats.wild;
-
-        // These stat values should always be numbers, but sometimes 
-        // they get returned as strings and I don't know why.
-        if (typeof wizardStat === "string") {
-            wizardStat = parseInt(wizardStat);
-        }
-
-        if (typeof wildStat === "string") {
-            wildStat = parseInt(wildStat);
-        }
-
-        let endResult = (isWizardRoll && wizardStat === 7) || (!isWizardRoll && wildStat === 7);
-
-        if (isWizardRoll) {
-            wizardStat += offset;
-        } else {
-            wildStat += offset;
-        }
-
-        if (wizardStat >= 0 && wizardStat <= 7) {
-            // Set the new values in the sheet.
-            await this.actor.update({ "system.stats.wizard": wizardStat });
-            await this.actor.update({ "system.stats.wild": wildStat });
-
-            console.log(this.actor.system.stats.wizard);
-
-            // Check to see if either the bear or criminal stat has reached 6,
-            // which means it's the end for this bear.
-            if (wizardStat === 7) {
-                endResult = true;
-
-                if (roll) {
-                    roll.toMessage({
-                        user: game.user.id,  // avoid deprecation warning, backwards compatible
-                        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                        flavor: game.i18n.localize("DW.BearEndMessage")
-                    });
-                } else {
-                    ChatMessage.create({
-                        user: game.user.id,  // avoid deprecation warning, backwards compatible
-                        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                        content: game.i18n.localize("DW.BearEndMessage")
-                    });
-                }
-            } else if (wildStat === 7) {
-                endResult = true;
-
-                if (roll) {
-                    roll.toMessage({
-                        user: game.user.id,  // avoid deprecation warning, backwards compatible
-                        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                        flavor: game.i18n.localize("DW.CriminalEndMessage")
-                    });
-                } else {
-                    ChatMessage.create({
-                        user: game.user.id,  // avoid deprecation warning, backwards compatible
-                        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                        content: game.i18n.localize("DW.CriminalEndMessage")
-                    });
-                }
-            }
-        }
-
-        return endResult;
     }
 
     _isWizardRoll(element) {

@@ -1,24 +1,19 @@
-# Honey Heist
+# Definitely Wizards
 
-It’s Honeycon. You are going to undertake the greatest heist the world has ever seen. 
-Two Things – 
-One: You have a complex plan that requires precise timing.
-Two: You are a GODDAMN BEAR
+Everyone knows the proper way to gain arcane abilities is through discipline and years of study. Magic is temperamental, and it's too dangerous to let anybody who just happens to have "inner power" cast spells. Wizards who have worked studiously and been tested on their capabilities are the only ones we can trust with that power.
 
-![Honey Heist Screenshot](https://github.com/jbhaywood/foundryvtt-honeyheist/blob/master/resources/images/screenshot.png?raw=true "Honey Heist Screenshot")
+Unfortunately for you, this means all other sources of magic have been declared illegal. If you want to take jobs where spellcasting is a requirement, you must be a licensed wizard. Your party has completed the paperwork and written test and now face the final challenge: completing the Wizard Certification Practical Exam.
 
 ## Description
-Honey Heist is a one-page RPG by Grant Howitt available to download for free [here](https://gshowitt.itch.io/honey-heist). The system includes a character sheet for players and roll tables for the GM.
+Honey Heist is a rules-light TTRPG about pretending to be a wizard by Elliot HT available to purchase [here](https://elliothtart.itch.io/definitely-wizards). The system includes a character sheet for players and roll tables for the GM.
 
 ### For Players
 Open the actor the GM created for you. On the character sheet, you'll find options for each attribute which you can choose yourself or roll for. Click the die icon next to each to let the dice decide for you.
 
 When the GM asks for a roll during the game, click the single or double dice icon next to the relevant stat (bear or criminal). If you're using one of your bear skills or doing something related to your role, use the double dice. It will roll both and choose the lower die. You want to roll under or equal to your stat.
 
-If you want to manually transfer a point into bear or criminal, click the relavant icon next to the word "Bear" or "Criminal". Look at the chat message to see what you need to role-play.
-
 ### For GMs
-There are four roll tables available for randomly creating the details of HoneyCon. There is one each for determining the organizer, setting, location, and prize.
+There are roll tables available for randomly creating the details of the test.
 
 ## That's it!
 This is a very simple system for a very simple (but awesome) game. Enjoy!

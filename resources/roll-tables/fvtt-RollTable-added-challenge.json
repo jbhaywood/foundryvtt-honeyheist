@@ -1,0 +1,118 @@
+{
+  "name": "AddedChallenge",
+  "sort": 100004,
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Add after the first chamber..",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "h2tvvcm5s74Tv5SI",
+      "text": "The room is overgrown with vines that attempt to grab players.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "JAjFkUB3yuMJFsLT",
+      "text": "The room has no gravity.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "yuK9ESouY8fQysie",
+      "text": "The exit door is 30 feet up the wall.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "3tJBg1jz7tLjVxip",
+      "text": "The room is full of mushrooms that shoot spores at the players.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "lSpKEhEpNYO4XzXR",
+      "text": "The room is on fire.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "o2XxiMMlTvTYoGIh",
+      "text": "Come up with your own or roll again twice.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "_id": "o10aSoa1MmSv73Jm",
+  "flags": {
+    "exportSource": {
+      "world": "defwiz-test",
+      "system": "definitely-wizards",
+      "coreVersion": "10.291",
+      "systemVersion": "1"
+    }
+  },
+  "_stats": {
+    "systemId": "definitely-wizards",
+    "systemVersion": "1",
+    "coreVersion": "10.291",
+    "createdTime": 1675446446902,
+    "modifiedTime": 1675446500597,
+    "lastModifiedBy": "7tb3mKRi81OTM7ij"
+  }
+}

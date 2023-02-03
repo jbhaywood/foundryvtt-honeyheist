@@ -43,7 +43,10 @@ export async function rollConsequences(actorID, isWizardRoll) {
     ChatMessage.create({
         user: game.user.id,
         speaker: ChatMessage.getSpeaker({actor: actor}),
-        content: await renderTemplate(template, templateData)
+        content: await renderTemplate(template, templateData),
+        roll: roll,
+        sound: CONFIG.sounds.dice,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL
     });
 
 }

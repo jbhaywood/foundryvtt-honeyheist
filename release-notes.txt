@@ -1,13 +1,2 @@
-v1.3: 1/8/2023
-- System migration to Foundry v10
-- Added support for Items
-v1.22: 6/24/2021
-- Fixed the security table getting duplicated on game startup.
-v1.21: 6/24/2021
-- Trying to get this updating in Foundry correctly.
-v1.2: 6/20/2021
-- Updated to support Foundry API 8.x.
-v1.1: 12/12/2020
-- Fixed bug with rolling caused by Foundry API change.
-v1.0: 9/12/2020
+v1.0: 3/2/2023
 - First release.

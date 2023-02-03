@@ -1,0 +1,117 @@
+{
+  "name": "Judge",
+  "sort": 100001,
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Determine how the test is judged",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "eqnSTFjpnNFu5fWY",
+      "text": "An extremely stern elderly wizard is in the chambers with you, holding a clipboard and quill to take notes.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "Bvyj8WHXyWF5Oxpo",
+      "text": "Each chamber has a large two-way mirror, with judges hidden on the other side.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "kVNFvDbxxA4W7zTI",
+      "text": "There's a magical glowing orb following the players, linked to a proctor scrying from somewhere else.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "8s2nXyRykbt8K4Qi",
+      "text": "The test is in a massive arena, with a panel of judges holding up scorecards and an audience of folks just here to watch the show.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "dRjT70puy5oWXSB9",
+      "text": "A class from the Wizard Academy is observing the test. A professor explains your performance while the students take notes.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "z9KPp3KGGN1wW9CN",
+      "text": "A magical automaton follows the players, talking to itself in an audiolog to be reviewed later.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "flags": {
+    "exportSource": {
+      "world": "defwiz-test",
+      "system": "definitely-wizards",
+      "coreVersion": "10.291",
+      "systemVersion": "1"
+    }
+  },
+  "_stats": {
+    "systemId": "definitely-wizards",
+    "systemVersion": "1",
+    "coreVersion": "10.291",
+    "createdTime": 1675445839569,
+    "modifiedTime": 1675445918866,
+    "lastModifiedBy": "7tb3mKRi81OTM7ij"
+  }
+}

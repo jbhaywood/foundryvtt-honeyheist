@@ -3,208 +3,208 @@
 @import "utility.less";
 
 .definitelywizards {
-	.window-content {
-		color: @textColor;
-		height: 100%;
-		padding: @margin;
-		overflow-y: auto;
-	}
-	.sheet-panel {
-		display: grid;
-		grid-template-rows: max-content max-content 1fr;
-		gap: @margin;
+    .window-content {
+        color: @textColor;
+        height: 100%;
+        padding: @margin;
+        overflow-y: auto;
+    }
+    .sheet-panel {
+        display: grid;
+        grid-template-rows: max-content max-content 1fr;
+        gap: @margin;
 
-		#stat-panel {
-			gap: @margin;
-			height: auto;
-			display: grid;
-			grid-template-columns: 100px 1fr 1fr;
-			grid-template-rows: 40px 1fr;
-			grid-template-areas: "portrait name name" "portrait wizard wild";
-			gap: @margin;
+        #stat-panel {
+            gap: @margin;
+            height: auto;
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            grid-template-rows: 40px 1fr;
+            grid-template-areas: "portrait name name" "portrait wizard wild";
+            gap: @margin;
 
-			.profile-img {
-				grid-area: portrait;
-				height: 100px;
-			}
-			.char-name {
-				grid-area: name;
-				border-bottom: 0;
+            .profile-img {
+                grid-area: portrait;
+                height: 100px;
+            }
+            .char-name {
+                grid-area: name;
+                border-bottom: 0;
 
-				input {
-					width: 100%;
-					height: 100%;
-					margin: 0;
-				}
-			}
-			#stat-wizard,
-			#stat-wild {
-				grid-area: wizard;
-				gap: 0;
-				margin-top: -10px;
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				grid-template-rows: auto 1fr;
-				grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
-				align-items: center;
-			}
-			#stat-wizard {
-				grid-area: wizard;
-			}
-			#stat-wild {
-				grid-area: wild;
-			}
-			.stat-title {
-				grid-area: title;
-			}
-			.stat-button {
-				height: 40px;
-				grid-area: icon;
-			}
-			.stat-button-plus {
-				height: 25px;
-				grid-area: plus;
-			}
-			.stat-button-minus {
-				height: 25px;
-				grid-area: minus;
-			}
-			.stat-button-reset {
-				height: 25px;
-				grid-area: reset;
-			}
-			.stat-roll-single {
-				height: 35px;
-				grid-area: die;
-			}
-			.stat-roll-double {
-				height: 35px;
-				grid-area: dice;
-			}
-			.stat-value {
-				font-size: 45px;
-				font-family: Title;
-				height: 50px;
-				text-align: center;
-				width: 40px;
-				border: 0;
-				background: transparent;
-				grid-area: value;
-			}
-		}
-		#attributes-panel,#bio-panel {
-			max-height: 260px;
-		}
-		#attributes-panel {
-			margin-right: 0.5rem;
+                input {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+            }
+            #stat-wizard,
+            #stat-wild {
+                grid-area: wizard;
+                gap: 0;
+                margin-top: -10px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto 1fr;
+                grid-template-areas: "title title title ." "value die dice." "plus minus reset .";
+                align-items: center;
+            }
+            #stat-wizard {
+                grid-area: wizard;
+            }
+            #stat-wild {
+                grid-area: wild;
+            }
+            .stat-title {
+                grid-area: title;
+            }
+            .stat-button {
+                height: 40px;
+                grid-area: icon;
+            }
+            .stat-button-plus {
+                height: 25px;
+                grid-area: plus;
+            }
+            .stat-button-minus {
+                height: 25px;
+                grid-area: minus;
+            }
+            .stat-button-reset {
+                height: 25px;
+                grid-area: reset;
+            }
+            .stat-roll-single {
+                height: 35px;
+                grid-area: die;
+            }
+            .stat-roll-double {
+                height: 35px;
+                grid-area: dice;
+            }
+            .stat-value {
+                font-size: 45px;
+                font-family: Title;
+                height: 50px;
+                text-align: center;
+                width: 40px;
+                border: 0;
+                background: transparent;
+                grid-area: value;
+            }
+        }
+        #attributes-panel,#bio-panel {
+            max-height: 260px;
+        }
+        #attributes-panel {
+            margin-right: 0.5rem;
 
-			#attributes {
-				display: grid;
-				gap: @margin;
-				margin-top: @margin;
+            #attributes {
+                display: grid;
+                gap: @margin;
+                margin-top: @margin;
 
-				label {
-					grid-area: attr-label;
-				}
+                label {
+                    grid-area: attr-label;
+                }
 
-				select {
-					grid-area: attr-select;
-				}
+                select {
+                    grid-area: attr-select;
+                }
 
-				img {
-					grid-area: attr-roller;
-				}
+                img {
+                    grid-area: attr-roller;
+                }
 
-				input {
-					grid-area: attr-custom;
-				}
-			}
-			.attribute {
-				align-items: center;
-				display: grid;
-				gap: @margin;
-				grid-template-columns: 72px 200px 1fr;
-				grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom ."
-			}
-		}
-		#bio-panel {
-			display: grid;
-			grid-template-rows: max-content 1fr;
-			flex: 1;
+                input {
+                    grid-area: attr-custom;
+                }
+            }
+            .attribute {
+                align-items: center;
+                display: grid;
+                gap: @margin;
+                grid-template-columns: 72px 200px 1fr;
+                grid-template-areas: "attr-label attr-select attr-roller" ". attr-custom ."
+            }
+        }
+        #bio-panel {
+            display: grid;
+            grid-template-rows: max-content 1fr;
+            flex: 1;
 
-			.editor {
-				min-height: 150px;
-				max-height: 260px;
-				overflow-y: auto;
-			}
-		}
+            .editor {
+                min-height: 150px;
+                max-height: 260px;
+                overflow-y: auto;
+            }
+        }
 
-		#middle-panel {
-			display: flex;
-			justify-content: space-between;
-			flex-wrap: nowrap;
-			margin-top: 14px;
-		}
+        #middle-panel {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            margin-top: 14px;
+        }
 
-		#items-panel {
-			.hh-item-list {
-				overflow-y: auto;
-				height: 175px;
-			}
-			.add-item {
-				font-size: 0.7rem;
-				align-self: center;
-			}
-			.add-item:hover {
-				text-shadow: 2px 2px 4px var(--color-text-dark-5);
-				cursor: pointer;
-			}
+        #items-panel {
+            .hh-item-list {
+                overflow-y: auto;
+                height: 175px;
+            }
+            .add-item {
+                font-size: 0.7rem;
+                align-self: center;
+            }
+            .add-item:hover {
+                text-shadow: 2px 2px 4px var(--color-text-dark-5);
+                cursor: pointer;
+            }
 
-			ol {
-				list-style: none;
-				margin: 0;
-				overflow-y: auto;
-				scrollbar-width: thin;
-				padding: 0 5px;
-			}
-			.items-header {
-				border-bottom: 1px solid var(--color-border-dark-5);
+            ol {
+                list-style: none;
+                margin: 0;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                padding: 0 5px;
+            }
+            .items-header {
+                border-bottom: 1px solid var(--color-border-dark-5);
 
-				.item-name {
-					padding-left: 5px;
-					text-align: left;
-					border-bottom: none;
-				}
-			}
-			.item-roll {
-				cursor: pointer;
-			}
-			.item-name {
-				margin: 0;
-				overflow: hidden;
-				align-items: center;
+                .item-name {
+                    padding-left: 5px;
+                    text-align: left;
+                    border-bottom: none;
+                }
+            }
+            .item-roll {
+                cursor: pointer;
+            }
+            .item-name {
+                margin: 0;
+                overflow: hidden;
+                align-items: center;
 
-				.item-image {
-					flex: 0 0 30px;
-					height: 30px;
-					width: 30px;
-					background-size: cover;
-					background-position: 50% 0;
-					border: none;
-				}
-			}
-			.item-controls {
-  				flex: 0 0 68px;
-  				align-items: center;
-			}
-		}
-	}
-	.chatItem .item-image {
-		flex: 0 0 15px;
-		height: 15px;
-		width: 15px;
-		background-size: cover;
-		background-position: 50% 0;
-		border: none;
-	}
+                .item-image {
+                    flex: 0 0 30px;
+                    height: 30px;
+                    width: 30px;
+                    background-size: cover;
+                    background-position: 50% 0;
+                    border: none;
+                }
+            }
+            .item-controls {
+                flex: 0 0 68px;
+                align-items: center;
+            }
+        }
+    }
+    .chatItem .item-image {
+        flex: 0 0 15px;
+        height: 15px;
+        width: 15px;
+        background-size: cover;
+        background-position: 50% 0;
+        border: none;
+    }
 }

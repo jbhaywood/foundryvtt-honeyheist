@@ -1,0 +1,117 @@
+{
+  "name": "Surprise",
+  "sort": 100005,
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Add after the second chamber",
+  "results": [
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "CJ0F3fRL4WJIQHVZ",
+      "text": "The room begins to fill with freezing cold water.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "gRxepZQHsINnlMcq",
+      "text": "Players slowly shrink to 1/10 size.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "PK8iTLk5y8yKem0y",
+      "text": "The room is haunted.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "FGMtLwLWFVGM5OAd",
+      "text": "The ceiling begins to collapse.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "4OYfzwRaaUXku2Fa",
+      "text": "An element of the room controls a player’s mind and makes them attack the rest of the party.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    },
+    {
+      "type": 0,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "documentCollection": "",
+      "_id": "5uentrTo6otw3hD2",
+      "text": "Come up with your own or roll again twice.",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {}
+    }
+  ],
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "flags": {
+    "exportSource": {
+      "world": "defwiz-test",
+      "system": "definitely-wizards",
+      "coreVersion": "10.291",
+      "systemVersion": "1"
+    }
+  },
+  "_stats": {
+    "systemId": "definitely-wizards",
+    "systemVersion": "1",
+    "coreVersion": "10.291",
+    "createdTime": 1675446515214,
+    "modifiedTime": 1675446559501,
+    "lastModifiedBy": "7tb3mKRi81OTM7ij"
+  }
+}
