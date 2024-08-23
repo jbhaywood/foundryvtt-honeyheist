@@ -35,7 +35,8 @@ export class HoneyHeistActorSheet extends ActorSheet {
 
 		html.find(".attribute-roll").click(async (ev) => {
 			const roller = $(ev.currentTarget);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData());
+			await roll.evaluate();
 			const parent = roller.parent("div");
 			const label = parent.find("label").get(0).innerText;
 			const select = parent.find("select").get(0);
@@ -83,7 +84,8 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			const roller = $(ev.currentTarget);
 			const input = roller.siblings(".stat-value").get(0);
 			const currentValue = parseInt(input.value);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData()).evaluate({ async: false });  // avoid deprecation warning, backwards compatible
+			const roll = new Roll(roller.data("roll"), this.actor.getRollData());
+			await roll.evaluate();
 			const isSuccess = roll.total <= currentValue;
 			const rollSuccess = isSuccess ? game.i18n.localize("HH.Success") : game.i18n.localize("HH.Failed");
 			const actionMessage = isSuccess
@@ -98,7 +100,7 @@ export class HoneyHeistActorSheet extends ActorSheet {
 			// GREED: When the plan goes off without a hitch, move
 			// one point from Bear into Criminal.
 			const isEnd = await this._updateStatsAsync(isSuccess ? -1 : 1, roll, isBearRoll);
-
+			
 			if (!isEnd) {
 				roll.toMessage({
 					user: game.user.id,  // avoid deprecation warning, backwards compatible
