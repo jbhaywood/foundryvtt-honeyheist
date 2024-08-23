@@ -1,31 +1,34 @@
 {
-	"id": "honey-heist",
-	"title": "Honey Heist",
-	"description": "It's HoneyCon. You are going to undertake the greatest heist the world has ever seen.",
-	"version": 1.5,
-	"templateVersion": 2,
-	"compatibility": {
-		"minimum": "10",
-		"verified": "10",
-		"maximum": ""
-	},
-	"authors": [
-		{
-			"name": "JHaywood"
-		}
-	],
-	"esmodules": [ "module/main.js" ],
-	"styles": [ "styles/main.css" ],
-	"packs": [],
-	"languages": [
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
-		}
-	],
-	"url": "https://github.com/jbhaywood/foundryvtt-honeyheist/",
-	"manifest": "https://raw.githubusercontent.com/jbhaywood/foundryvtt-honeyheist/master/system.json",
-	"download": "https://github.com/jbhaywood/foundryvtt-honeyheist/archive/v1.5.zip",
-	"license": "LICENSE.txt"
+  "id": "honey-heist",
+  "title": "Honey Heist",
+  "description": "It's HoneyCon. You are going to undertake the greatest heist the world has ever seen.",
+  "version": "1.5",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "JHaywood",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "module/main.js"
+  ],
+  "styles": [
+    "styles/main.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/jbhaywood/foundryvtt-honeyheist/",
+  "manifest": "https://raw.githubusercontent.com/jbhaywood/foundryvtt-honeyheist/master/system.json",
+  "download": "https://github.com/jbhaywood/foundryvtt-honeyheist/archive/v1.5.zip",
+  "license": "LICENSE.txt"
 }
