@@ -2,11 +2,11 @@
   "id": "honey-heist",
   "title": "Honey Heist",
   "description": "It's HoneyCon. You are going to undertake the greatest heist the world has ever seen.",
-  "version": "1.61",
+  "version": "1.71",
   "compatibility": {
     "minimum": "10",
-    "verified": "12",
-    "maximum": "12"
+    "verified": "13",
+    "maximum": "13"
   },
   "authors": [
     {
@@ -30,6 +30,6 @@
   ],
   "url": "https://github.com/jbhaywood/foundryvtt-honeyheist/",
   "manifest": "https://raw.githubusercontent.com/jbhaywood/foundryvtt-honeyheist/master/system.json",
-  "download": "https://github.com/jbhaywood/foundryvtt-honeyheist/archive/v1.61.zip",
+  "download": "https://github.com/jbhaywood/foundryvtt-honeyheist/archive/v1.71.zip",
   "license": "LICENSE.txt"
 }
