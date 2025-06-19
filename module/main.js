@@ -6,18 +6,18 @@ Hooks.once("init", async function () {
 	console.log(`HoneyHeist: Initializing`);
 
 	// Define custom Entity classes
-	if (isNewerVersion(game.data.version, "0.8.0")) {
+	if (foundry.utils.isNewerVersion(game.data.version, "0.8.0")) {
 		CONFIG.Actor.documentClass = HoneyHeistActor;
 	} else {
 		CONFIG.Actor.entityClass = HoneyHeistActor;
 	}
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { label: "Honey Heist Character Sheet (Default)", makeDefault: true });
+	foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+	foundry.documents.collections.Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { label: "Honey Heist Character Sheet (Default)", makeDefault: true });
 
-	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("honeyheist", HoneyHeistItemSheet, { label: "Honey Heist Item Sheet (Default)", makeDefault: true });
+	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+	foundry.documents.collections.Items.registerSheet("honeyheist", HoneyHeistItemSheet, { label: "Honey Heist Item Sheet (Default)", makeDefault: true });
 
 	Handlebars.registerHelper("removeProperty", function (obj, property) {
 		delete obj[property];
@@ -40,7 +40,7 @@ Hooks.once("ready", async function () {
 		Twist: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
 	};
 
-	if (isNewerVersion(game.data.version, "0.8.0")) {
+	if (foundry.utils.isNewerVersion(game.data.version, "0.8.0")) {
 		for (const document of game.collections.get("RollTable").contents) {
 			existingRollTables.push(document.name);
 		}

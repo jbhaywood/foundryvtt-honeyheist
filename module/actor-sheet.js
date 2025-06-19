@@ -4,10 +4,10 @@
  */
 
 
-export class HoneyHeistActorSheet extends ActorSheet {
+export class HoneyHeistActorSheet extends foundry.appv1.sheets.ActorSheet {
 	/** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["honeyheist", "sheet", "actor"],
 			template: "systems/honey-heist/templates/actor-sheet.html",
 			width: 750,
