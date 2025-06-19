@@ -3,10 +3,10 @@
  * @extends {ItemSheet}
  */
 
-export class HoneyHeistItemSheet extends ItemSheet {
+export class HoneyHeistItemSheet extends foundry.appv1.sheets.ItemSheet {
     /** @override */
 	static get defaultOptions() {
-		return mergeObject(super.defaultOptions, {
+		return foundry.utils.mergeObject(super.defaultOptions, {
 			classes: ["honeyheist", "sheet", "item"],
 			template: "systems/honey-heist/templates/item-sheet.html",
 			width: 550,
