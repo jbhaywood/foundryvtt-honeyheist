@@ -4,8 +4,7 @@
   "results": [
     {
       "_id": "eXiHC9vMQTrsgqUl",
-      "type": 0,
-      "text": "Armed guards",
+      "type": "text",
       "weight": 1,
       "range": [
         1,
@@ -14,15 +13,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 1,
-      "collection": null,
-      "resultId": null
+      "name": "Armed guards",
+      "description": ""
     },
     {
       "_id": "gFy9yQkaeOLxZwuJ",
-      "type": 0,
-      "text": "Electronically locked doors",
+      "type": "text",
       "weight": 1,
       "range": [
         2,
@@ -31,15 +27,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 2,
-      "rangeH": 2,
-      "collection": null,
-      "resultId": null
+      "name": "Electronically locked doors",
+      "description": ""
     },
     {
       "_id": "hjPxDHRvskvkqdbc",
-      "type": 0,
-      "text": "Laser tripwire grids",
+      "type": "text",
       "weight": 1,
       "range": [
         3,
@@ -48,15 +41,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 3,
-      "collection": null,
-      "resultId": null
+      "name": "Laser tripwire grids",
+      "description": ""
     },
     {
       "_id": "15zfM2MtCOKYw10b",
-      "type": 0,
-      "text": "CCTV network",
+      "type": "text",
       "weight": 1,
       "range": [
         4,
@@ -65,15 +55,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 4,
-      "rangeH": 4,
-      "collection": null,
-      "resultId": null
+      "name": "CCTV network",
+      "description": ""
     },
     {
       "_id": "mVxexxX5OCwrkQjV",
-      "type": 0,
-      "text": "\"Impenetrable\" Vault",
+      "type": "text",
       "weight": 1,
       "range": [
         5,
@@ -82,15 +69,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 5,
-      "rangeH": 5,
-      "collection": null,
-      "resultId": null
+      "name": "\"Impenetrable\" Vault",
+      "description": ""
     },
     {
       "_id": "vTR8rtkbSVuAoKNb",
-      "type": 0,
-      "text": "Poison gas",
+      "type": "text",
       "weight": 1,
       "range": [
         6,
@@ -99,10 +83,8 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 6,
-      "rangeH": 6,
-      "collection": null,
-      "resultId": null
+      "name": "Poison gas",
+      "description": ""
     }
   ],
   "replacement": true,

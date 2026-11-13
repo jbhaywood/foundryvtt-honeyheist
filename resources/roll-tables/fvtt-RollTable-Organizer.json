@@ -14,86 +14,86 @@
     {
       "_id": "UjpqqildBz1q4fBK",
       "flags": {},
-      "type": 0,
-      "text": "Cunning and Sly",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         1,
         1
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Cunning and Sly",
+      "description": ""
     },
     {
       "_id": "jpjByZ0iufpAlJc0",
       "flags": {},
-      "type": 0,
-      "text": "Greedy and Wicked",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         2,
         2
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Greedy and Wicked",
+      "description": ""
     },
     {
       "_id": "qzGRo6jdSug9mJnA",
       "flags": {},
-      "type": 0,
-      "text": "Clueless and Exploitable",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         3,
         3
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Clueless and Exploitable",
+      "description": ""
     },
     {
       "_id": "eiEPMWvb2Cow9uWm",
       "flags": {},
-      "type": 0,
-      "text": "Mabye too obessed with honey",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         4,
         4
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Mabye too obessed with honey",
+      "description": ""
     },
     {
       "_id": "K8krd6l9r0Lv8DZn",
       "flags": {},
-      "type": 0,
-      "text": "A spoilt trust-fund kid",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         5,
         5
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "A spoilt trust-fund kid",
+      "description": ""
     },
     {
       "_id": "Vbi8mDQ05n2wtlns",
       "flags": {},
-      "type": 0,
-      "text": "Ruthless and Corrupt",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         6,
         6
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Ruthless and Corrupt",
+      "description": ""
     }
   ],
   "formula": "1d6",

@@ -1,88 +1,52 @@
 import { HoneyHeistActor } from "./actor.js";
 import { HoneyHeistActorSheet } from "./actor-sheet.js";
 import { HoneyHeistItemSheet } from "./item-sheet.js";
+import { HoneyHeistCharacterData, HoneyHeistItemData } from "./data.js";
 
-Hooks.once("init", async function () {
-	console.log(`HoneyHeist: Initializing`);
+const SYSTEM_ID = "honey-heist";
 
-	// Define custom Entity classes
-	if (foundry.utils.isNewerVersion(game.data.version, "0.8.0")) {
-		CONFIG.Actor.documentClass = HoneyHeistActor;
-	} else {
-		CONFIG.Actor.entityClass = HoneyHeistActor;
-	}
+Hooks.once("init", () => {
+	console.log("HoneyHeist: Initializing");
 
-	// Register sheet application classes
-	foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
-	foundry.documents.collections.Actors.registerSheet("honeyheist", HoneyHeistActorSheet, { label: "Honey Heist Character Sheet (Default)", makeDefault: true });
+	// Document classes and data models (these replace template.json).
+	CONFIG.Actor.documentClass = HoneyHeistActor;
+	CONFIG.Actor.dataModels.character = HoneyHeistCharacterData;
+	CONFIG.Item.dataModels.item = HoneyHeistItemData;
 
-	foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
-	foundry.documents.collections.Items.registerSheet("honeyheist", HoneyHeistItemSheet, { label: "Honey Heist Item Sheet (Default)", makeDefault: true });
-
-	Handlebars.registerHelper("removeProperty", function (obj, property) {
-		delete obj[property];
-		return obj;
+	// Register our sheets as the defaults.
+	const { DocumentSheetConfig } = foundry.applications.apps;
+	DocumentSheetConfig.registerSheet(foundry.documents.Actor, "honeyheist", HoneyHeistActorSheet, {
+		types: ["character"],
+		label: "Honey Heist Character Sheet (Default)",
+		makeDefault: true
 	});
-
-	// CONFIG.debug.hooks = true;
+	DocumentSheetConfig.registerSheet(foundry.documents.Item, "honeyheist", HoneyHeistItemSheet, {
+		types: ["item"],
+		label: "Honey Heist Item Sheet (Default)",
+		makeDefault: true
+	});
 });
 
-Hooks.once("ready", async function () {
-	// Make sure all roll tables are always present.
-	const existingRollTables = [];
-	const rollTablesToAdd = [];
+Hooks.once("ready", async () => {
+	// Make sure all roll tables are always present. Only a GM may create them.
+	if (!game.user.isGM) return;
+
 	const rollTables = {
-		Organizer: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Organizer.json",
-		Setting: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Setting.json",
-		Location: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Location.json",
-		Prize: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Prize.json",
-		Security: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Security.json",
-		Twist: "/systems/honey-heist/resources/roll-tables/fvtt-RollTable-Twist.json"
+		Organizer: "fvtt-RollTable-Organizer.json",
+		Setting: "fvtt-RollTable-Setting.json",
+		Location: "fvtt-RollTable-Location.json",
+		Prize: "fvtt-RollTable-Prize.json",
+		Security: "fvtt-RollTable-Security.json",
+		Twist: "fvtt-RollTable-Twist.json"
 	};
 
-	if (foundry.utils.isNewerVersion(game.data.version, "0.8.0")) {
-		for (const document of game.collections.get("RollTable").contents) {
-			existingRollTables.push(document.name);
-		}
-	} else {
-		for (const document of RollTable.collection.entities) {
-			existingRollTables.push(document.name);
-		}
+	const existing = new Set(game.tables.map((table) => table.name));
+	const toAdd = [];
+	for (const [name, file] of Object.entries(rollTables)) {
+		if (existing.has(name)) continue;
+		const url = foundry.utils.getRoute(`systems/${SYSTEM_ID}/resources/roll-tables/${file}`);
+		toAdd.push(await foundry.utils.fetchJsonWithTimeout(url));
 	}
 
-	for (let [key, value] of Object.entries(rollTables)) {
-		if (existingRollTables.indexOf(key) === -1) {
-			const rollTable = await $.getJSON(value).then();
-			rollTablesToAdd.push(rollTable);
-		}
-	}
-
-	RollTable.create(rollTablesToAdd);
-});
-
-Hooks.on("renderHoneyHeistActorSheet", (ev) => {
-	// Color a stat red if it's value is six.
-	const root = ev.element[0];
-	const bearStatElement = root.querySelector("#stat-bear .stat-value");
-	const criminalStatElement = root.querySelector("#stat-criminal .stat-value");
-	let bearVal = parseInt(bearStatElement.value, 10);
-	let criminalVal = parseInt(criminalStatElement.value, 10);
-
-	if (bearVal === 6) {
-		bearStatElement.classList.add("error-red");
-	} else if (criminalVal === 6) {
-		criminalStatElement.classList.add("error-red");
-	}
-
-	// Show the extra hat options if the initial hat stat is 'roll-twice'.
-	const hatRollElement = root.querySelector("#hat-roll");
-	if (hatRollElement.value === "roll-twice") {
-		for (const elem of root.querySelectorAll(".hat2")) {
-			elem.style.display = "";
-		}
-	} else {
-		for (const elem of root.querySelectorAll(".hat2")) {
-			elem.style.display = "none";
-		}
-	}
+	if (toAdd.length) await foundry.documents.RollTable.createDocuments(toAdd);
 });

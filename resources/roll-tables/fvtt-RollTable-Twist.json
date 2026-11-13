@@ -5,8 +5,7 @@
   "results": [
     {
       "_id": "3nPbgMfp6wYJQetU",
-      "type": 0,
-      "text": "This place is rigged to blow!",
+      "type": "text",
       "weight": 1,
       "range": [
         1,
@@ -15,15 +14,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 1,
-      "collection": null,
-      "resultId": null
+      "name": "This place is rigged to blow!",
+      "description": ""
     },
     {
       "_id": "W7mZOQhBx0j3BbHq",
-      "type": 0,
-      "text": "The cops are en route!",
+      "type": "text",
       "weight": 1,
       "range": [
         2,
@@ -32,15 +28,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 2,
-      "rangeH": 2,
-      "collection": null,
-      "resultId": null
+      "name": "The cops are en route!",
+      "description": ""
     },
     {
       "_id": "2TZB7BWtKjiAqC0z",
-      "type": 0,
-      "text": "Look - a rival team of bears!",
+      "type": "text",
       "weight": 1,
       "range": [
         3,
@@ -49,15 +42,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 3,
-      "collection": null,
-      "resultId": null
+      "name": "Look - a rival team of bears!",
+      "description": ""
     },
     {
       "_id": "HVRkdJ2QcRNR1ZFV",
-      "type": 0,
-      "text": "They've been set up!",
+      "type": "text",
       "weight": 1,
       "range": [
         4,
@@ -66,15 +56,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 4,
-      "rangeH": 4,
-      "collection": null,
-      "resultId": null
+      "name": "They've been set up!",
+      "description": ""
     },
     {
       "_id": "ad1Mi0yrOAfzQiEN",
-      "type": 0,
-      "text": "The prize is a fake!",
+      "type": "text",
       "weight": 1,
       "range": [
         5,
@@ -83,15 +70,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 5,
-      "rangeH": 5,
-      "collection": null,
-      "resultId": null
+      "name": "The prize is a fake!",
+      "description": ""
     },
     {
       "_id": "MnkRXWqiy4gY0oLf",
-      "type": 0,
-      "text": "The bees are angry!",
+      "type": "text",
       "weight": 1,
       "range": [
         6,
@@ -100,10 +84,8 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 6,
-      "rangeH": 6,
-      "collection": null,
-      "resultId": null
+      "name": "The bees are angry!",
+      "description": ""
     }
   ],
   "formula": "1d6",

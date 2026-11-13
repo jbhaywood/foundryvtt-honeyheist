@@ -13,86 +13,86 @@
     {
       "_id": "suhVkwmT7QZx66ty",
       "flags": {},
-      "type": 0,
-      "text": "Creepy",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         1,
         1
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Creepy",
+      "description": ""
     },
     {
       "_id": "O6fzeF3hf6j2nfUI",
       "flags": {},
-      "type": 0,
-      "text": "Busy",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         2,
         2
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Busy",
+      "description": ""
     },
     {
       "_id": "CpRGwt70NoTHwgYw",
       "flags": {},
-      "type": 0,
-      "text": "Run-Down",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         3,
         3
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Run-Down",
+      "description": ""
     },
     {
       "_id": "gDpiewrlbjoK8AKV",
       "flags": {},
-      "type": 0,
-      "text": "Beautiful",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         4,
         4
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Beautiful",
+      "description": ""
     },
     {
       "_id": "7hFhyDHbgfuMlOZg",
       "flags": {},
-      "type": 0,
-      "text": "Dangerous",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         5,
         5
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Dangerous",
+      "description": ""
     },
     {
       "_id": "q1BXDA9E0vFVfrFN",
       "flags": {},
-      "type": 0,
-      "text": "Lavish",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         6,
         6
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Lavish",
+      "description": ""
     }
   ],
   "replacement": true,

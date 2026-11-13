@@ -13,86 +13,86 @@
     {
       "_id": "MCZjc1CbGfgMqW6G",
       "flags": {},
-      "type": 0,
-      "text": "Ultradense megahoney from especially posh bees.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         1,
         1
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Ultradense megahoney from especially posh bees.",
+      "description": ""
     },
     {
       "_id": "qvFdwb0op9M92l7r",
       "flags": {},
-      "type": 0,
-      "text": "A briefcase of pure manuka extract worth $5m.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         2,
         2
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "A briefcase of pure manuka extract worth $5m.",
+      "description": ""
     },
     {
       "_id": "45xLqRkwYpzqv3Ap",
       "flags": {},
-      "type": 0,
-      "text": "The Queen of All Bees, Once Exiled, Now Returned.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         3,
         3
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "The Queen of All Bees, Once Exiled, Now Returned.",
+      "description": ""
     },
     {
       "_id": "lD5mW4FK9CfvhLCx",
       "flags": {},
-      "type": 0,
-      "text": "Black Orchid Honey, which turns anyone who eats it into a goth.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         4,
         4
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Black Orchid Honey, which turns anyone who eats it into a goth.",
+      "description": ""
     },
     {
       "_id": "LWWHGsxG5CUFBLyY",
       "flags": {},
-      "type": 0,
-      "text": "Abraham Lincoln’s beehive, thought to be haunted by his ghost.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         5,
         5
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Abraham Lincoln’s beehive, thought to be haunted by his ghost.",
+      "description": ""
     },
     {
       "_id": "LrODHOfBZuJLcdhO",
       "flags": {},
-      "type": 0,
-      "text": "Miss Universe – an especially attractive Bee.",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         6,
         6
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Miss Universe – an especially attractive Bee.",
+      "description": ""
     }
   ],
   "replacement": true,

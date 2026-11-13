@@ -1,238 +1,237 @@
+import { FIELD_CHOICES, HH } from "./config.js";
+
+const { HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
+const { ActorSheetV2 } = foundry.applications.sheets;
+const TextEditor = () => foundry.applications.ux.TextEditor.implementation;
+
+const loc = (key) => game.i18n.localize(key);
+
 /**
- * Extend the basic ActorSheet
- * @extends {ActorSheet}
+ * Honey Heist character sheet (ApplicationV2).
+ * @extends {ActorSheetV2}
  */
-
-
-export class HoneyHeistActorSheet extends foundry.appv1.sheets.ActorSheet {
+export class HoneyHeistActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 	/** @override */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ["honeyheist", "sheet", "actor"],
+	static DEFAULT_OPTIONS = {
+		classes: ["honeyheist", "sheet", "actor"],
+		position: { width: 750, height: 625 },
+		window: { resizable: false },
+		form: { submitOnChange: true },
+		dragDrop: [{ dragSelector: "[data-item-id][draggable]", dropSelector: null }],
+		actions: {
+			moveStat: HoneyHeistActorSheet.#onMoveStat,
+			rollStat: HoneyHeistActorSheet.#onRollStat,
+			rollAttribute: HoneyHeistActorSheet.#onRollAttribute,
+			addItem: HoneyHeistActorSheet.#onAddItem,
+			editItem: HoneyHeistActorSheet.#onEditItem,
+			deleteItem: HoneyHeistActorSheet.#onDeleteItem,
+			rollItem: HoneyHeistActorSheet.#onRollItem
+		}
+	};
+
+	/** @override */
+	static PARTS = {
+		sheet: {
 			template: "systems/honey-heist/templates/actor-sheet.html",
-			width: 750,
-			height: 625,
-			scrollY: [ "hh-item-list" ],
-            dragDrop: [{ dropSelector: null, dragSelector: '[draggable]' }],
-			resizable: false
-		});
-	}
+			scrollable: [".hh-item-list"]
+		}
+	};
 
 	/** @override */
-	getData(options) {
-		let baseData = super.getData(options);
-		let sheetData = {};
-		sheetData = baseData.data;  // needed to handle the new 0.8.x data depth
-		sheetData.actor = this.actor.toObject(false);  // needed for actor.x handlebars
-		sheetData.editable = this.options.editable;  // needed to fix TinyMCE due to missing editable parameter
-		console.debug("Actor Sheet Data:", sheetData)
-		return sheetData;
-	}
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+		const actor = this.actor;
+		const system = actor.system;
+		const enrich = TextEditor().enrichHTML.bind(TextEditor());
 
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
-
-		html.find(".attribute-roll").click(async (ev) => {
-			const roller = $(ev.currentTarget);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData());
-			await roll.evaluate();
-			const parent = roller.parent("div");
-			const label = parent.find("label").get(0).innerText;
-			const select = parent.find("select").get(0);
-			const attributeName = select.name;
-			const option = select.options[roll.total - 1];
-
-			await this.actor.update({ [attributeName]: option.value });
-
-			// If you roll an 8 on a hat roll, you get two hats!
-			if (attributeName === "data.hat" && roll.total === 9) {
-				$(".hat2").show();
-				roll.toMessage({
-					user: game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-					content: `<h2>${label} Roll</h2><h3>${option.innerText} You get two hats!!</h3>`
-				});
-			} else {
-				roll.toMessage({
-					user: game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-					content: `<h2>${label} Roll</h2><h3>${option.innerText}</h3>`
-				});
-			}
-		});
-
-		html.find(".stat-button").click((ev) => {
-			const isBearRoll = this._isBearRoll(ev.currentTarget);
-			const updateValue = isBearRoll ? 1 : -1;
-			this._updateStatsAsync(updateValue, null, isBearRoll).then((isEnd) => {
-
-				if (!isEnd) {
-					ChatMessage.create({
-						content: isBearRoll
-							? game.i18n.localize("HH.CriminalToBear")
-							: game.i18n.localize("HH.BearToCriminal"),
-						user: game.user.id,
-						speaker: ChatMessage.getSpeaker({ actor: this.actor })
-					});
-				}
+		const items = [];
+		for (const item of actor.items.contents.sort((a, b) => a.sort - b.sort)) {
+			items.push({
+				id: item.id,
+				name: item.name,
+				img: item.img,
+				description: await enrich(item.system.description, { relativeTo: item, secrets: item.isOwner })
 			});
+		}
+
+		return Object.assign(context, {
+			actor,
+			system,
+			source: actor.toObject(),
+			systemFields: system.schema.fields,
+			editable: this.isEditable,
+			enrichedBiography: await enrich(system.biography, {
+				relativeTo: actor,
+				rollData: actor.getRollData(),
+				secrets: actor.isOwner
+			}),
+			items,
+			choices: {
+				descriptor: HH.descriptors,
+				bearType: HH.bearTypes,
+				role: HH.roles,
+				hat: HH.hats,
+				extraHats: HH.extraHats
+			},
+			values: {
+				descriptor: system.descriptor,
+				bearType: system["bear-type"],
+				role: system.role,
+				hat: system.hat,
+				hat2a: system.hat2a,
+				hat2b: system.hat2b
+			},
+			// A stat of six means the end for this bear; colour it red.
+			bearEnd: system.stats.bear === 6,
+			criminalEnd: system.stats.bear !== 6 && system.stats.criminal === 6,
+			// Show the extra hat options only if the hat roll came up "Roll Twice!".
+			showHat2: system.hat === "roll-twice"
 		});
-
-		html.find(".stat-roll-single, .stat-roll-double").click(async (ev) => {
-			const isBearRoll = this._isBearRoll(ev.currentTarget);
-			const roller = $(ev.currentTarget);
-			const input = roller.siblings(".stat-value").get(0);
-			const currentValue = parseInt(input.value);
-			const roll = new Roll(roller.data("roll"), this.actor.getRollData());
-			await roll.evaluate();
-			const isSuccess = roll.total <= currentValue;
-			const rollSuccess = isSuccess ? game.i18n.localize("HH.Success") : game.i18n.localize("HH.Failed");
-			const actionMessage = isSuccess
-				? game.i18n.localize("HH.GreedMessage")
-				: game.i18n.localize("HH.FrustrationMessage");
-			const chatMessage = isBearRoll
-				? `${game.i18n.localize("HH.RollForBear")}: ${rollSuccess}. <p>${actionMessage}</p>`
-				: `${game.i18n.localize("HH.RollForCriminal")}: ${rollSuccess}. <p>${actionMessage}</p?`;
-
-			// FRUSTRATION: When the plan fails and you run into
-			// difficulty, move one point from Criminal into Bear.
-			// GREED: When the plan goes off without a hitch, move
-			// one point from Bear into Criminal.
-			const isEnd = await this._updateStatsAsync(isSuccess ? -1 : 1, roll, isBearRoll);
-			
-			if (!isEnd) {
-				roll.toMessage({
-					user: game.user.id,  // avoid deprecation warning, backwards compatible
-					speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-					flavor: chatMessage
-				});
-			}
-		});
-
-		html.find(".add-item").click(async (ev) => {
-			let item = await this.actor.createEmbeddedDocuments("Item", [{type: "item", name: game.i18n.localize('HH.NewItemName')}]);
-			await item[0].sheet.render(true);
-		});
-
-		html.find(".item-edit").click(async (ev) => {
-			const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-			const item = this.actor.items.get(itemID);
-			if (item) { item.sheet.render(true); }
-		});
-
-		html.find(".item-delete").click(async (ev) => {
-			const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-			const item = this.actor.items.get(itemID);
-
-			new Dialog({
-				title: `${game.i18n.localize("HH.ConfirmItemDelete")}: ${item.name}`,
-				content: game.i18n.localize("HH.ConfirmItemDeleteText"),
-				buttons: {
-					yes: {
-						icon: "<i class='fas fa-check'></i>",
-						label: game.i18n.localize("Yes"),
-						callback: async (html) => {
-							await item.delete();
-						}
-					},
-					no: {
-						icon: "<i class='fas fa-times'></i>",
-						label: game.i18n.localize("No")
-					}
-				},
-				default: "no"
-			}).render(true);
-		});
-
-		html.find(".item-roll").click(async (ev) => {
-			const itemID = $(ev.currentTarget).parents("[data-item-id]")[0].dataset.itemId;
-			const item = this.actor.items.get(itemID);
-			const messageData = {
-				speaker: ChatMessage.getSpeaker({actor: this.actor}),
-				content: `
-					<div class="honeyheist">
-						<div class="chatItem flexrow">
-							<div class="item-image" tabindex="0" aria-label="${item.name}" style="background-image: url('${item.img}')"></div>
-							<h4>${item.name}</h4>
-						</div>
-			  		</div>
-	  				<div>${item.getRollData().description}</div>`
-			}
-
-			await ChatMessage.create(messageData);
-		})
 	}
 
-	async _updateStatsAsync(offset, roll, isBearRoll) {
-		let bearStat = this.actor.system.stats.bear;
-		let criminalStat = this.actor.system.stats.criminal;
+	/* -------------------------------------------- */
+	/*  Actions                                     */
+	/* -------------------------------------------- */
 
-		// These stat values should always be numbers, but sometimes 
-		// they get returned as strings and I don't know why.
-		if (typeof bearStat === "string") {
-			bearStat = parseInt(bearStat);
+	/** Move one point between Bear and Criminal without rolling. */
+	static async #onMoveStat(event, target) {
+		const isBearRoll = target.dataset.stat === "bear";
+		const isEnd = await this.#updateStats(isBearRoll ? 1 : -1, null, isBearRoll);
+		if (!isEnd) {
+			await ChatMessage.create({
+				content: isBearRoll ? loc("HH.CriminalToBear") : loc("HH.BearToCriminal"),
+				speaker: ChatMessage.getSpeaker({ actor: this.actor })
+			});
 		}
+	}
 
-		if (typeof criminalStat === "string") {
-			criminalStat = parseInt(criminalStat);
+	/** Roll 1d6 (or 2d6kl) against the Bear or Criminal stat. */
+	static async #onRollStat(event, target) {
+		const isBearRoll = target.dataset.stat === "bear";
+		const currentValue = Number(this.actor.system.stats[isBearRoll ? "bear" : "criminal"]);
+		const roll = new Roll(target.dataset.roll, this.actor.getRollData());
+		await roll.evaluate();
+
+		const isSuccess = roll.total <= currentValue;
+		const rollSuccess = isSuccess ? loc("HH.Success") : loc("HH.Failed");
+		const actionMessage = isSuccess ? loc("HH.GreedMessage") : loc("HH.FrustrationMessage");
+		const flavor = `${loc(isBearRoll ? "HH.RollForBear" : "HH.RollForCriminal")}: ${rollSuccess}. <p>${actionMessage}</p>`;
+
+		// FRUSTRATION: When the plan fails and you run into difficulty,
+		// move one point from Criminal into Bear.
+		// GREED: When the plan goes off without a hitch,
+		// move one point from Bear into Criminal.
+		const isEnd = await this.#updateStats(isSuccess ? -1 : 1, roll, isBearRoll);
+		if (!isEnd) {
+			await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }), flavor });
 		}
+	}
+
+	/** Roll for one of the attribute dropdowns (descriptor, bear type, role, hat, extra hats). */
+	static async #onRollAttribute(event, target) {
+		const field = target.dataset.field;
+		const choices = FIELD_CHOICES[field];
+		if (!choices) return;
+
+		const roll = new Roll(target.dataset.roll, this.actor.getRollData());
+		await roll.evaluate();
+
+		// Index 0 is the "Roll" placeholder, so a total of N picks the Nth entry after it.
+		const key = Object.keys(choices)[roll.total - 1];
+		if (key === undefined) return;
+		const optionLabel = choices[key];
+		const label = target.closest(".attribute")?.querySelector("label")?.textContent?.trim() ?? field;
+
+		await this.actor.update({ [`system.${field}`]: key });
+
+		// If you roll an 8 on a hat roll, you get two hats!
+		const twoHats = field === "hat" && key === "roll-twice";
+		await roll.toMessage({
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			content: `<h2>${label} Roll</h2><h3>${optionLabel}${twoHats ? " You get two hats!!" : ""}</h3>`
+		});
+	}
+
+	static async #onAddItem() {
+		const [item] = await this.actor.createEmbeddedDocuments("Item", [{ type: "item", name: loc("HH.NewItemName") }]);
+		await item?.sheet.render({ force: true });
+	}
+
+	static async #onEditItem(event, target) {
+		const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+		await item?.sheet.render({ force: true });
+	}
+
+	static async #onDeleteItem(event, target) {
+		const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+		if (!item) return;
+		const confirmed = await DialogV2.confirm({
+			window: { title: `${loc("HH.ConfirmItemDelete")}: ${item.name}` },
+			content: `<p>${loc("HH.ConfirmItemDeleteText")}</p>`,
+			rejectClose: false,
+			modal: true
+		});
+		if (confirmed) await item.delete();
+	}
+
+	/** Post the item (image, name and description) to chat. */
+	static async #onRollItem(event, target) {
+		const item = this.actor.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+		if (!item) return;
+		const name = Handlebars.escapeExpression(item.name);
+		const img = Handlebars.escapeExpression(item.img);
+		await ChatMessage.create({
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			content: `
+				<div class="honeyheist">
+					<div class="chatItem flexrow">
+						<div class="item-image" tabindex="0" aria-label="${name}" style="background-image: url('${img}')"></div>
+						<h4>${name}</h4>
+					</div>
+				</div>
+				<div>${item.system.description}</div>`
+		});
+	}
+
+	/* -------------------------------------------- */
+	/*  Helpers                                     */
+	/* -------------------------------------------- */
+
+	/**
+	 * Shift a point between Bear and Criminal.
+	 * @param {number} offset       Added to Bear, subtracted from Criminal.
+	 * @param {Roll|null} roll      The roll that caused the shift, if any.
+	 * @param {boolean} isBearRoll  Whether the Bear stat was the one in play.
+	 * @returns {Promise<boolean>}  True if this ended the bear's story.
+	 */
+	async #updateStats(offset, roll, isBearRoll) {
+		let bearStat = Number(this.actor.system.stats.bear);
+		let criminalStat = Number(this.actor.system.stats.criminal);
 
 		let endResult = (isBearRoll && bearStat === 6) || (!isBearRoll && criminalStat === 6);
+		if (endResult) return endResult;
 
-		if (!endResult) {
-			// Adjust the current values based on the given offset.
-			bearStat += offset;
-			criminalStat -= offset;
+		// Adjust the current values based on the given offset.
+		bearStat += offset;
+		criminalStat -= offset;
 
-			// Only need to check one or the other stat value to make sure they're in the 0-6 range.
-			if (bearStat >= 0 && bearStat <= 6) {
-				// Set the new values in the sheet.
-				await this.actor.update({ "system.stats.bear": bearStat });
-				await this.actor.update({ "system.stats.criminal": criminalStat });
+		// Only need to check one of the stats to make sure they're in the 0-6 range.
+		if (bearStat < 0 || bearStat > 6) return endResult;
 
-				// Check to see if either the bear or criminal stat has reached 6,
-				// which means it's the end for this bear.
-				if (bearStat === 6) {
-					endResult = true;
+		await this.actor.update({ "system.stats.bear": bearStat, "system.stats.criminal": criminalStat });
 
-					if (roll) {
-						roll.toMessage({
-							user: game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-							flavor: game.i18n.localize("HH.BearEndMessage")
-						});
-					} else {
-						ChatMessage.create({
-							user: game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-							content: game.i18n.localize("HH.BearEndMessage")
-						});
-					}
-				} else if (criminalStat === 6) {
-					endResult = true;
+		// If either stat has reached 6, it's the end for this bear.
+		let endMessage = null;
+		if (bearStat === 6) endMessage = loc("HH.BearEndMessage");
+		else if (criminalStat === 6) endMessage = loc("HH.CriminalEndMessage");
 
-					if (roll) {
-						roll.toMessage({
-							user: game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-							flavor: game.i18n.localize("HH.CriminalEndMessage")
-						});
-					} else {
-						ChatMessage.create({
-							user: game.user.id,  // avoid deprecation warning, backwards compatible
-							speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-							content: game.i18n.localize("HH.CriminalEndMessage")
-						});
-					}
-				}
-			}
+		if (endMessage) {
+			endResult = true;
+			const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+			if (roll) await roll.toMessage({ speaker, flavor: endMessage });
+			else await ChatMessage.create({ speaker, content: endMessage });
 		}
 
 		return endResult;
-	}
-
-	_isBearRoll(element) {
-		return element.parentElement.id === "stat-bear";
 	}
 }

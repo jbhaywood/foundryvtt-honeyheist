@@ -13,6 +13,14 @@ body {
 .window-app .window-content {
   background: #dbcbbd;
 }
+.application.honeyheist {
+  --background: #87431d;
+  background: #87431d;
+}
+.application.honeyheist .window-content {
+  font-family: Body;
+  background: #dbcbbd;
+}
 .app {
   background: #87431d;
 }
@@ -26,14 +34,14 @@ body {
   background: #dbcbbd;
 }
 .flavor-text {
-  color: @textColor;
+  color: #1a1c20;
 }
 h2 {
   font-family: Title;
-  border-bottom: 2px solid @textColor;
+  border-bottom: 2px solid #1a1c20;
 }
 input[type="text"] {
-  border: 1px solid @textColor;
+  border: 1px solid #1a1c20;
   border-radius: 0px;
   font-family: Title;
   font-size: 1.3em;
@@ -70,7 +78,7 @@ input,
 input[type="text"],
 input[type="password"],
 input[type="datetime-local"] {
-  color: @textColor;
+  color: #1a1c20;
 }
 .sheet-footer {
   margin-top: 10px;
@@ -80,7 +88,7 @@ input[type="datetime-local"] {
   color: #dbcbbd;
 }
 .window-content .fa-plus:before {
-  color: @textColor;
+  color: #1a1c20;
 }
 .tabs .item.active {
   text-shadow: 0 0 10px #87431d;
@@ -140,7 +148,7 @@ input[type="datetime-local"] {
   color: darkred !important;
 }
 .honeyheist .window-content {
-  color: @textColor;
+  color: #1a1c20;
   height: 100%;
   padding: 10px;
   overflow-y: auto;
@@ -301,4 +309,13 @@ input[type="datetime-local"] {
   background-size: cover;
   background-position: 50% 0;
   border: none;
+}
+.honeyheist .flexrow {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.honeyheist prose-mirror {
+  min-height: 150px;
+  max-height: 260px;
+  overflow-y: auto;
 }

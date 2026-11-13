@@ -13,86 +13,86 @@
     {
       "_id": "tYYgmeMbt0rsH7KB",
       "flags": {},
-      "type": 0,
-      "text": "Lakeside Camp",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         1,
         1
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Lakeside Camp",
+      "description": ""
     },
     {
       "_id": "cgKqQHc3kcsxJu9O",
       "flags": {},
-      "type": 0,
-      "text": "Fishing Village",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         2,
         2
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Fishing Village",
+      "description": ""
     },
     {
       "_id": "n8IOfpjouZnIMrxy",
       "flags": {},
-      "type": 0,
-      "text": "Metropolitan City",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         3,
         3
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Metropolitan City",
+      "description": ""
     },
     {
       "_id": "0634eExS10cVTzt5",
       "flags": {},
-      "type": 0,
-      "text": "Convention Center",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         4,
         4
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Convention Center",
+      "description": ""
     },
     {
       "_id": "c4IT7tHyfgE16fll",
       "flags": {},
-      "type": 0,
-      "text": "Truck Convoy",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         5,
         5
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Truck Convoy",
+      "description": ""
     },
     {
       "_id": "ZPsYPYSYULGFw042",
       "flags": {},
-      "type": 0,
-      "text": "Wilderness Retreat",
+      "type": "text",
       "img": "icons/svg/d20-black.svg",
-      "resultId": "",
       "weight": 1,
       "range": [
         6,
         6
       ],
-      "drawn": false
+      "drawn": false,
+      "name": "Wilderness Retreat",
+      "description": ""
     }
   ],
   "replacement": true,

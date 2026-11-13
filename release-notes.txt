@@ -1,3 +1,13 @@
+v2.0.0: 2026
+- System migration to Foundry v14 (requires v14; v13 and older are no longer supported)
+- Character and item sheets rewritten on ApplicationV2 (the old v1 sheets and the removed {{#select}} helper broke in v14)
+- template.json replaced by TypeDataModels declared in system.json "documentTypes"
+- Dropdown choice lists (descriptor, bear type, role, hat) moved to module/config.js instead of being stored on every actor
+- Roll tables converted to the current TableResult format; only a GM creates missing tables on startup
+- Delete confirmation uses DialogV2
+- Fixed: rolling "Roll Twice!" for hats never announced the two hats (stale "data.hat" field name)
+- Fixed: stray "</p?" in the criminal roll chat message
+- Fixed: stats now update in one write instead of two
 v1.3: 1/8/2023
 - System migration to Foundry v10
 - Added support for Items

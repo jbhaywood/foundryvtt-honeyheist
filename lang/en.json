@@ -37,5 +37,6 @@
 	"HH.ItemDelete": "Delete",
 	"HH.NewItemName": "New Item",
 	"HH.ConfirmItemDelete": "Confirm Deletion of Item",
-	"HH.ConfirmItemDeleteText": "Are you sure you wish to delete this item?"
+	"HH.ConfirmItemDeleteText": "Are you sure you wish to delete this item?",
+	"HH.BearName": "Bear Name"
 }
